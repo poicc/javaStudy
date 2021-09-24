@@ -1,4 +1,4 @@
-package com.soft.study;
+package com.soft.study.day1;
 
 import java.util.Scanner;
 
