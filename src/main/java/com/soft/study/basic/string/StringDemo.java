@@ -1,4 +1,4 @@
-package com.soft.study.day2;
+package com.soft.study.basic.string;
 
 import java.util.Scanner;
 
