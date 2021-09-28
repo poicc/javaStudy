@@ -25,8 +25,8 @@ public class FloatRounding {
     private static void wrong1() {
         double num1  =3.35;
         float num2 = 3.35f;
-        log.info(String.format("%.lf",num1));
-        log.info(String.format("%.lf",num2));
+        log.info(String.format("%.1f",num1));
+        log.info(String.format("%.1f",num2));
     }
 
     private static void wrong2() {
