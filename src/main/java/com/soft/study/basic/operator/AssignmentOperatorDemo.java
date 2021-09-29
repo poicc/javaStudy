@@ -13,9 +13,11 @@ public class AssignmentOperatorDemo {
         int a = 10;
         int b = 20;
         int c = 0;
+        c = a + b;
+        log.info("c = a + b =" + c);
+
         c += a;
         log.info("c += a =" + c);
-
         c -= a;
         log.info("c -= a =" + c);
         c *= a;
