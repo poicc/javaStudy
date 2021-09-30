@@ -1,0 +1,26 @@
+.root {
+    -fx-background-image: url(../img/bg6.jpeg);
+    -fx-background-size: cover;
+}
+
+.title {
+    -fx-font-size: 30;
+    -fx-text-fill: #41afbd;
+}
+
+.btn {
+    -fx-min-width: 100;
+    -fx-min-height: 40;
+    -fx-background-color: #41afbd;
+    -fx-text-fill: #f6f6f6;
+    -fx-font-size: 16;
+}
+.textF {
+    -fx-font-size: 30;
+    -fx-start-margin: 20;
+}
+.listV {
+    -fx-font-size: 30;
+    -fx-start-margin: 20;
+
+}

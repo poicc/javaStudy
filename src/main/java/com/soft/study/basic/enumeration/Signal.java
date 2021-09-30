@@ -2,6 +2,7 @@ package com.soft.study.basic.enumeration;
 
 /**
  * 信号灯枚举
+ * @author crq
  */
 public enum Signal {
     /**
