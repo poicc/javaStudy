@@ -14,6 +14,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <javafx.version>11.0.2</javafx.version>
         <bootstrapfx.core>0.4.0</bootstrapfx.core>
+        <jfoenix>9.0.10</jfoenix>
     </properties>
 
     <dependencies>
@@ -32,6 +33,12 @@
                 <artifactId>bootstrapfx-core</artifactId>
                 <version>${bootstrapfx.core}</version>
             </dependency>
+        <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>${jfoenix}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -18,8 +18,8 @@ public class BreakAndContinue {
         for (int i = 0; i < fruit.size(); i++) {
             switch (fruit.get(i)) {
                 case "orange":
-//                    continue;
-                    break;
+                    continue;
+//                    break;
             }
             log.info("we have {}", fruit.get(i));
         }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #41afbd;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.poicc.java.jfx.ctrl.SceneCtrl">
+    <children>
+        <Button fx:id="btn" layoutX="234.0" layoutY="103.0" mnemonicParsing="false" onAction="#onBtnClick" text="点击">
+            <opaqueInsets>
+                <Insets top="2.0" />
+            </opaqueInsets>
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <DatePicker fx:id="datePicker" layoutX="181.0" layoutY="223.0" visible="false" />
+    </children>
+</AnchorPane>

@@ -12,7 +12,7 @@ public class SwitchDemo {
     public static void main(String[] args) {
         int i = 0;
         int j = -1;
-        //没有break时 会发生case穿透现象 且没有对应case匹配和default 默认执行了最后一条
+        //没有break时 会发生case穿透现象 且没有对应case匹配和default 一路执行到了最后一条
         switch (i) {
             case 0:
                 j = 1;

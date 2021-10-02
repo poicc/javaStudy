@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox layoutX="-7.0" prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.poicc.java.jfx.ctrl.IndexCtrl">
+    <HBox VBox.vgrow="ALWAYS">
+        <VBox prefWidth="350.0" style="-fx-padding: 50;" styleClass="vboxBg" HBox.hgrow="ALWAYS">
+            <VBox prefWidth="248.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <children>
+                    <HBox prefWidth="248.0">
+                        <children>
+                            <ImageView fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png" />
+                                <HBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                </HBox.margin>
+                                <fitWidth>65</fitWidth>
+                                <fitHeight>65</fitHeight>
+                                <clip>
+                                    <Circle fx:id="circle" centerX="33" centerY="33" fill="aqua">
+                                        <radius>33</radius>
+                                    </Circle>
+                                </clip>
+                            </ImageView>
+                            <VBox prefWidth="173.0" HBox.hgrow="ALWAYS">
+                                <children>
+                                    <Label prefHeight="21.0" prefWidth="61.0" text="It's my music player">
+                                        <padding>
+                                            <Insets top="5.0" />
+                                        </padding>
+                                    </Label>
+                                    <Label text="poicc" />
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" top="15.0" />
+                                </padding>
+                            </VBox>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+            <VBox prefWidth="100.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                <children>
+                    <Button styleClass="btn-border" mnemonicParsing="false" text="Search">
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin>
+                    </Button>
+                    <Button styleClass="btn-border" mnemonicParsing="false" text="Playlist">
+                        <VBox.margin>
+                            <Insets top="20.0" />
+                        </VBox.margin>
+                    </Button>
+                    <Button styleClass="btn-border" mnemonicParsing="false" text="Top podcasts">
+                        <VBox.margin>
+                            <Insets top="20.0" />
+                        </VBox.margin>
+                    </Button>
+                    <Button styleClass="btn-border" mnemonicParsing="false" text="Made For You">
+                        <VBox.margin>
+                            <Insets top="20.0" />
+                        </VBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets top="50.0" />
+                </VBox.margin>
+            </VBox>
+        </VBox>
+        <VBox prefWidth="268.0" HBox.hgrow="ALWAYS">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0" styleClass="box1" VBox.vgrow="ALWAYS">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://p2.music.126.net/DJfkuXG7P478Cb2ODUgmRg==/109951163608046759.jpg" />
+                            <HBox.margin>
+                                <Insets left="40.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label text="poicc喜欢的音乐">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label text="in 2 hours">
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets top="30.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" styleClass="box2" VBox.vgrow="ALWAYS">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://p2.music.126.net/9JPvDG0b1Gh_iIjFdAJOgQ==/109951166032106075.jpg" />
+                            <HBox.margin>
+                                <Insets left="40.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label text="每日推荐歌曲">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label text="31 Tracks">
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets top="30.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" styleClass="box3" VBox.vgrow="ALWAYS">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://p3.music.126.net/9jLAgcjvCm0PhQUBK18DwQ==/109951165443784230.jpg" />
+                            <HBox.margin>
+                                <Insets left="40.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label text="开口即跪女声">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label text="16.16M PLAYED">
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets top="30.0" />
+                    </padding>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0" styleClass="box4" VBox.vgrow="ALWAYS">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://p4.music.126.net/QIZiYj5g4KoHNu-NleS3Pw==/109951166183955094.jpg" />
+                            <HBox.margin>
+                                <Insets left="40.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label text="开口即跪女声">
+                                    <VBox.margin>
+                                        <Insets top="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <Label text="16.16M PLAYED">
+                                    <VBox.margin>
+                                        <Insets top="5.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets top="30.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </HBox>
+    <HBox prefHeight="80">
+        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/bg4.3w63ks4q5ry0.jpeg" />
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+        </ImageView>
+        <VBox prefWidth="100.0">
+            <children>
+                <Label text="清河">
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </Label>
+                <Label text="白皮书乐队">
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+            <HBox.margin>
+                <Insets left="20.0" />
+            </HBox.margin>
+        </VBox>
+        <Label text="LRC">
+            <HBox.margin>
+                <Insets left="220.0" top="10.0" />
+            </HBox.margin>
+        </Label>
+        <Label text="20.87KCOMMENTS">
+            <HBox.margin>
+                <Insets left="10.0" top="10.0" />
+            </HBox.margin>
+        </Label>
+
+        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/like.33jrsjr9ytc0.png" />
+            <HBox.margin>
+                <Insets left="40.0" top="7.0" />
+            </HBox.margin>
+        </ImageView>
+        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/sj.6xs8oog3cmk0.png" />
+            <HBox.margin>
+                <Insets left="20.0" top="10.0" />
+            </HBox.margin>
+        </ImageView>
+        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/pre.4eowbanfeco0.png" />
+            <HBox.margin>
+                <Insets left="30.0" top="7.0" />
+            </HBox.margin>
+        </ImageView>
+        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/zt.29y70638gq80.png" />
+            <HBox.margin>
+                <Insets left="15.0" top="10.0" />
+            </HBox.margin>
+        </ImageView>
+        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/next.2gmxt1103y1w.png" />
+            <HBox.margin>
+                <Insets left="15.0" top="7.0" />
+            </HBox.margin>
+        </ImageView>
+      <padding>
+         <Insets bottom="10.0" top="20.0" />
+      </padding>
+    </HBox>
+</VBox>

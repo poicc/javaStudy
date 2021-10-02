@@ -1,7 +1,7 @@
-.root {
-    -fx-background-image: url(../img/bg6.jpeg);
-    -fx-background-size: cover;
-}
+/*.root {*/
+/*    -fx-background-image: url(../img/bg6.jpeg);*/
+/*    -fx-background-size: cover;*/
+/*}*/
 
 .title {
     -fx-font-size: 30;
@@ -23,4 +23,37 @@
     -fx-font-size: 30;
     -fx-start-margin: 20;
 
+}
+
+.vboxBg {
+    -fx-padding: 50;
+    -fx-background-image: url(../img/bg4.jpeg);
+    -fx-background-size: cover;
+
+}
+.box1{
+    -fx-background-color: linear-gradient(to right, #3980b6, #efe4b1);
+}
+.box2{
+    -fx-background-color: rgba(0, 142, 231, 0.5);
+}
+.box3{
+    -fx-background-color: linear-gradient(to right,#3980b6, #efe4b1);
+}
+.box4{
+    -fx-background-color: rgba(0, 231, 231, 0.5);
+}
+.btn-border {
+    -fx-background-insets: 0;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 20;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-progress-color: white;
+}
+.btn-border:hover {
+    -fx-font-size: 30;
 }

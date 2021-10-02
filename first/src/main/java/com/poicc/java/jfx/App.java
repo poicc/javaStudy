@@ -6,14 +6,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -26,7 +23,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         // 加载并创建主场景
-        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/main.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/index.fxml")));
         // 加载外部样式，这样窗口中所有组件可用，绑定在fxml组件上的样式只能本组件可用
         root.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/main.css")).toExternalForm());
         Scene scene = new Scene(root, AppConfig.stageWidth, AppConfig.stageHeight);
@@ -42,20 +39,20 @@ public class App extends Application {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
 
-        TextField input = (TextField) root.lookup("#input");
-        ListView<String> listView = (ListView<String>) root.lookup("#listView");
-
-        //给输入框添加监听
-        input.textProperty().addListener((observable,oldValue,newValue) -> {
-            //获取到输入的内容
-            String trim = newValue.trim();
-            if(trim.length() > 0) {
-                //调用Word的数据过滤方法
-                List<String> searchResult = Word.search(trim,word.words,String::contains);
-                listView.getItems().clear();
-                listView.getItems().addAll(searchResult);
-            }
-        });
+//        TextField input = (TextField) root.lookup("#input");
+//        ListView<String> listView = (ListView<String>) root.lookup("#listView");
+//
+//        //给输入框添加监听
+//        input.textProperty().addListener((observable,oldValue,newValue) -> {
+//            //获取到输入的内容
+//            String trim = newValue.trim();
+//            if(trim.length() > 0) {
+//                //调用Word的数据过滤方法
+//                List<String> searchResult = Word.search(trim,word.words,String::contains);
+//                listView.getItems().clear();
+//                listView.getItems().addAll(searchResult);
+//            }
+//        });
 
 
     }
