@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.effect.GaussianBlur?>
+<StackPane fx:id="root" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.poicc.java.jfx.ctrl.MusicCtrl">
+
+    <!--底部高斯模糊背景层-->
+    <AnchorPane prefHeight="-Infinity" prefWidth="-Infinity" styleClass="bg">
+        <effect>
+            <GaussianBlur radius="20"/>
+        </effect>
+    </AnchorPane>
+    <BorderPane prefHeight="-Infinity" prefWidth="-Infinity">
+        <top>
+            <VBox>
+            <!-- 标题栏，用水平拉伸的pane撑开为左右两端-->
+            <HBox alignment="CENTER_LEFT" onMouseDragged="#onDragged" onMousePressed="#onPressed"
+                  prefHeight="40.0"
+                  spacing="20" styleClass="top">
+                <padding>
+                    <Insets left="20" right="20"/>
+                </padding>
+                <Label styleClass="logo"/>
+                <Label styleClass="title" text="poicc"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Label onMouseClicked="#onMinClicked" styleClass="min"/>
+                <Label onMouseClicked="#onCloseClicked" styleClass="close"/>
+            </HBox>
+                <!--工具栏，用StackPane实现遮罩层的效果-->
+                <StackPane>
+                    <!--0 遮罩层-->
+                    <AnchorPane styleClass="container" prefWidth="-Infinity" prefHeight="-Infinity"/>
+                    <!--1 上层内容，水平布局-->
+                    <HBox alignment="CENTER" prefHeight="80.0" spacing="15.0">
+                        <padding>
+                            <Insets left="20.0" right="20.0"/>
+                        </padding>
+
+                        <!--1-1 左侧图标-->
+                        <ImageView fitHeight="70.0" fitWidth="70.0" styleClass="link">
+                            <Image url="@../icon/icon1.png"/>
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" styleClass="link">
+                            <Image url="@../icon/icon2.png"/>
+                            <HBox.margin>
+                                <Insets right="10.0"/>
+                            </HBox.margin>
+                        </ImageView>
+
+                        <!--1-2 水平撑开-->
+                        <Pane HBox.hgrow="ALWAYS"/>
+
+                        <!--1-3 右侧头像-->
+                        <ImageView styleClass="link">
+                            <Image url="https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png"/>
+                            <fitWidth>70</fitWidth>
+                            <fitHeight>70</fitHeight>
+                            <clip>
+                                <Circle centerX="35" centerY="35">
+                                    <radius>35</radius>
+                                </Circle>
+                            </clip>
+                        </ImageView>
+                    </HBox>
+                </StackPane>
+            </VBox>
+        </top>
+
+        <left>
+            <VBox alignment="TOP_CENTER" prefWidth="200.0" spacing="20.0">
+                    <Button onAction="#showFirstPane" styleClass="btn" text="民谣"/>
+                    <Button onAction="#showSecondPane" styleClass="btn" text="抒情"/>
+                    <Button onAction="#showThirdPane" styleClass="btn" text="榜单"/>
+                <padding>
+                    <Insets bottom="20.0" top="40.0"/>
+                </padding>
+            </VBox>
+        </left>
+        <center>
+            <StackPane prefHeight="-Infinity" prefWidth="-Infinity">
+                <FlowPane hgap="20.0" vgap="20.0" fx:id="firstPane">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <fx:include source="card.fxml"/>
+                    <fx:include source="card.fxml"/>
+                    <fx:include source="card.fxml"/>
+                    <fx:include source="card.fxml"/>
+                    <fx:include source="card.fxml"/>
+                    <fx:include source="card.fxml"/>
+                    <fx:include source="card.fxml"/>
+                </FlowPane>
+                <GridPane visible="false" hgap="20" vgap="20" fx:id="secondPane">
+                    <fx:include source="disc.fxml" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                    <fx:include source="disc.fxml" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                </GridPane>
+                <!--第三个面板，WebView-->
+                <AnchorPane visible="false" fx:id="thirdPane">
+                    <WebView fx:id="browser" prefWidth="580" prefHeight="350">
+                    </WebView>
+                </AnchorPane>
+                <padding>
+                    <Insets top="40.0"/>
+                </padding>
+            </StackPane>
+        </center>
+        <bottom>
+            <StackPane>
+                <!--0 遮罩层-->
+                <AnchorPane styleClass="container" prefWidth="-Infinity" prefHeight="-Infinity"/>
+                <HBox alignment="CENTER_LEFT" prefHeight="63.0" prefWidth="660.0" spacing="15.0" styleClass="top"
+                      stylesheets="@../css/music.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView styleClass="link" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="@../icon/1.jpg"/>
+                            <fitWidth>50</fitWidth>
+                            <fitHeight>50</fitHeight>
+                            <clip>
+                                <Circle fx:id="circle" centerX="25" centerY="25" fill="aqua">
+                                    <radius>25</radius>
+                                </Circle>
+                            </clip>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                              minWidth="-Infinity" prefHeight="50.0" prefWidth="100.0">
+                            <children>
+                                <Label text="清河">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </Label>
+                                <Label text="白皮书乐队">
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </VBox>
+
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS"/>
+
+                        <Label text="LRC"/>
+                        <Label text="20.87KCOMMENTS"/>
+
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/like.33jrsjr9ytc0.png"/>
+                        </ImageView>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/sj.6xs8oog3cmk0.png"/>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/pre.4eowbanfeco0.png"/>
+                        </ImageView>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/zt.29y70638gq80.png"/>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                            <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/next.2gmxt1103y1w.png"/>
+                        </ImageView>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets/>
+                    </BorderPane.margin>
+                    <padding>
+                        <Insets left="20.0" right="20.0"/>
+                    </padding>
+                </HBox>
+            </StackPane>
+        </bottom>
+    </BorderPane>
+</StackPane>

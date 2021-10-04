@@ -6,12 +6,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<VBox layoutX="-7.0" prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.poicc.java.jfx.ctrl.IndexCtrl">
+<VBox layoutX="-7.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poicc.java.jfx.ctrl.IndexCtrl">
     <HBox VBox.vgrow="ALWAYS">
         <VBox prefWidth="350.0" style="-fx-padding: 50;" styleClass="vboxBg" HBox.hgrow="ALWAYS">
             <VBox prefWidth="248.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
@@ -53,22 +52,22 @@
             </VBox>
             <VBox prefWidth="100.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
                 <children>
-                    <Button styleClass="btn-border" mnemonicParsing="false" text="Search">
+                    <Button mnemonicParsing="false" styleClass="btn-border" text="Search">
                         <VBox.margin>
                             <Insets />
                         </VBox.margin>
                     </Button>
-                    <Button styleClass="btn-border" mnemonicParsing="false" text="Playlist">
+                    <Button mnemonicParsing="false" styleClass="btn-border" text="Playlist">
                         <VBox.margin>
                             <Insets top="20.0" />
                         </VBox.margin>
                     </Button>
-                    <Button styleClass="btn-border" mnemonicParsing="false" text="Top podcasts">
+                    <Button mnemonicParsing="false" styleClass="btn-border" text="Top podcasts">
                         <VBox.margin>
                             <Insets top="20.0" />
                         </VBox.margin>
                     </Button>
-                    <Button styleClass="btn-border" mnemonicParsing="false" text="Made For You">
+                    <Button mnemonicParsing="false" styleClass="btn-border" text="Made For You">
                         <VBox.margin>
                             <Insets top="20.0" />
                         </VBox.margin>
@@ -83,12 +82,24 @@
             <children>
                 <HBox prefHeight="100.0" prefWidth="200.0" styleClass="box1" VBox.vgrow="ALWAYS">
                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="https://p2.music.126.net/DJfkuXG7P478Cb2ODUgmRg==/109951163608046759.jpg" />
-                            <HBox.margin>
-                                <Insets left="40.0" />
-                            </HBox.margin>
-                        </ImageView>
+                        <StackPane prefHeight="50.0" prefWidth="50.0">
+                            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="https://p2.music.126.net/DJfkuXG7P478Cb2ODUgmRg==/109951163608046759.jpg" />
+                                <HBox.margin>
+                                    <Insets left="40.0" />
+                                </HBox.margin>
+                            </ImageView>
+                            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="https://cdn.jsdelivr.net/gh/poicc/image@main/like1.1asxk11c5x7k.png" />
+                                <HBox.margin>
+                                    <Insets left="40.0" />
+                                </HBox.margin>
+                            </ImageView>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                        </StackPane>
+
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
                                 <Label text="poicc喜欢的音乐">

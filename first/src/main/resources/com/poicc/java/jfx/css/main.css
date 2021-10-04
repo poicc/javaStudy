@@ -35,13 +35,14 @@
     -fx-background-color: linear-gradient(to right, #3980b6, #efe4b1);
 }
 .box2{
-    -fx-background-color: rgba(0, 142, 231, 0.5);
+    -fx-background-color: linear-gradient(to right, #22838c, #efe4b1);
 }
 .box3{
     -fx-background-color: linear-gradient(to right,#3980b6, #efe4b1);
 }
 .box4{
-    -fx-background-color: rgba(0, 231, 231, 0.5);
+    -fx-background-color: linear-gradient(to right, #22838c, #efe4b1);
+
 }
 .btn-border {
     -fx-background-insets: 0;

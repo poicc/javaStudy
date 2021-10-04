@@ -1,7 +1,7 @@
 package com.poicc.java.jfx;
 
 import com.poicc.java.jfx.config.AppConfig;
-import com.poicc.java.jfx.ctrl.Word;
+import com.poicc.java.jfx.ctrl.MusicCtrl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,24 +19,39 @@ import java.util.Objects;
  * @create: 2021-09-30 22:31
  **/
 public class App extends Application {
-    public Word word = new Word();
+
+//    public Word word = new Word();
     @Override
     public void start(Stage stage) throws IOException {
-        // 加载并创建主场景
-        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/index.fxml")));
-        // 加载外部样式，这样窗口中所有组件可用，绑定在fxml组件上的样式只能本组件可用
-        root.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/main.css")).toExternalForm());
+       // 加载并创建主场景
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(App.class.getResource("fxml/grid.fxml")));
+//        // 加载外部样式，这样窗口中所有组件可用，绑定在fxml组件上的样式只能本组件可用
+//        root.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/music.css")).toExternalForm());
+//        Scene scene = new Scene(root, AppConfig.stageWidth, AppConfig.stageHeight);
+//        // 设置窗口信息
+//        stage.setTitle(AppConfig.title);
+//        //是否允许调整窗口尺寸
+//        stage.setResizable(AppConfig.stageResizable);
+//        //设置窗口透明度 默认为1
+//        stage.setOpacity(1);
+//        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream(AppConfig.icon))));
+//        stage.setScene(scene);
+//        //设置窗口无边框
+//        stage.initStyle(StageStyle.UNDECORATED);
+//        stage.show();
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(App.class.getResource("fxml/grid.fxml")));
+        Parent root = loader.load();
+        root.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/music.css")).toExternalForm());
+
+        MusicCtrl controller = loader.getController();
+        controller.setStage(stage);
+
         Scene scene = new Scene(root, AppConfig.stageWidth, AppConfig.stageHeight);
-        // 设置窗口信息
-        stage.setTitle(AppConfig.title);
-        //是否允许调整窗口尺寸
-        stage.setResizable(AppConfig.stageResizable);
-        //设置窗口透明度 默认为1
-        stage.setOpacity(1);
-        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream(AppConfig.icon))));
         stage.setScene(scene);
-        //设置窗口无边框
-        stage.initStyle(StageStyle.UNDECORATED);
+        stage.setResizable(AppConfig.stageResizable);
+        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream(AppConfig.icon))));
+
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
 
 //        TextField input = (TextField) root.lookup("#input");
@@ -53,6 +68,20 @@ public class App extends Application {
 //                listView.getItems().addAll(searchResult);
 //            }
 //        });
+//        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(App.class.getResource("fxml/grid.fxml")));
+//        Parent root = loader.load();
+//        root.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/music.css")).toExternalForm());
+//
+//        MusicCtrl controller = loader.getController();
+//        controller.setStage(stage);
+//
+//        Scene scene = new Scene(root, AppConfig.stageWidth, AppConfig.stageHeight);
+//        stage.setScene(scene);
+//        stage.setResizable(AppConfig.stageResizable);
+//        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream(AppConfig.icon))));
+//
+//        stage.initStyle(StageStyle.TRANSPARENT);
+//        stage.show();
 
 
     }
