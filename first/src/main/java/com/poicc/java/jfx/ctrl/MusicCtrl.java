@@ -106,6 +106,7 @@ public class MusicCtrl implements Initializable {
      * @param actionEvent actionEvent
      */
     public void showFirstPane(ActionEvent actionEvent) {
+        System.out.println(actionEvent);
         new FadeIn(firstPane).play();
         firstPane.setVisible(true);
         secondPane.setVisible(false);

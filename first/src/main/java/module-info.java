@@ -5,5 +5,10 @@ module java.jfx {
     requires AnimateFX;
 
     opens com.poicc.java.jfx.ctrl to javafx.fxml;
+    opens com.poicc.java.jfx to javafx.fxml;
     exports com.poicc.java.jfx;
+
+    opens com.poicc.java.jfx.layout to javafx.fxml;
+    exports com.poicc.java.jfx.layout;
+
 }
