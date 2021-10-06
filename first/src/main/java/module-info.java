@@ -11,4 +11,7 @@ module java.jfx {
     opens com.poicc.java.jfx.layout to javafx.fxml;
     exports com.poicc.java.jfx.layout;
 
+    opens com.poicc.java.jfx.basic to javafx.fxml;
+    exports com.poicc.java.jfx.basic;
+
 }
