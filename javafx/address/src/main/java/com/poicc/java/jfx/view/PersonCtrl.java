@@ -3,13 +3,19 @@ package com.poicc.java.jfx.view;
 import com.poicc.java.jfx.App;
 import com.poicc.java.jfx.model.Person;
 import com.poicc.java.jfx.util.DateUtil;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @description: 主界面控制器
@@ -43,6 +49,10 @@ public class PersonCtrl {
     private Label birthdayLabel;
     @FXML
     private ImageView avatar;
+    private ObservableList<Person> personData;
+
+    @FXML
+    private TextField inputField;
 
     public PersonCtrl(){}
 
@@ -58,8 +68,23 @@ public class PersonCtrl {
 
     public void setApp(App app) {
         this.app = app;
-        ObservableList<Person> peopleData = app.getPersonData();
-        personTable.setItems(peopleData);
+        personData = app.getPersonData();
+//        personTable.setItems(personData);
+//        showPersonDetails(personData.get(0));
+        FilteredList<Person> filteredList = new FilteredList<>(personData,p->true);
+        inputField.textProperty().addListener((observable,oldValue,newValue) -> {
+            filteredList.setPredicate(person -> {
+                if(newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                return person.getName().toLowerCase().contains(lowerCaseFilter)
+                        || person.getGender().toLowerCase().contains(lowerCaseFilter)
+                        || person.getClazz().toLowerCase().contains(lowerCaseFilter)
+                        || person.getAddress().toLowerCase().contains(lowerCaseFilter);
+            });
+        });
+        personTable.setItems(filteredList);
     }
 
     private void showPersonDetails(Person person) {
@@ -78,5 +103,24 @@ public class PersonCtrl {
             birthdayLabel.setText("");
             avatar.setImage(new Image("https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png"));
         }
+    }
+
+    public void handleRestPerson() {
+        personData = app.getPersonData();
+        personTable.setItems(personData);
+        showPersonDetails(personData.get(0));
+    }
+
+    public void handleSearchPerson() {
+        String keywords = inputField.getText().trim();
+        ObservableList<Person> items = personTable.getItems();
+        List<Person> list = items.stream()
+                .filter(p -> p.getName().contains(keywords) || p.getClazz().contains(keywords))
+                .collect(Collectors.toList());
+        if(list.size() != 0) {
+            personTable.setItems(FXCollections.observableList(list));
+            showPersonDetails(list.get(0));
+        }
+        inputField.setText("");
     }
 }

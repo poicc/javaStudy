@@ -14,6 +14,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="500.0" prefWidth="700.0" stylesheets="@../css/style.css"
             xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.poicc.java.jfx.view.PersonCtrl">
@@ -30,7 +32,14 @@
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                 </columnResizePolicy>
             </TableView>
-
+            <TextField promptText="输入关键字" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="100.0"
+                       AnchorPane.topAnchor="20.0" fx:id="inputField" prefHeight="30">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </TextField>
+            <Button text="查询" AnchorPane.rightAnchor="20.0" styleClass="btn"
+                    AnchorPane.topAnchor="20.0" onAction="#handleSearchPerson"/>
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <Label alignment="CENTER" layoutX="135.0" layoutY="34.0" styleClass="title" text="个人信息" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="20.0" />
@@ -61,8 +70,8 @@
                 <Label fx:id="addressLabel" text="地址" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <Label fx:id="birthdayLabel" text="生日" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </GridPane>
-            <HBox layoutX="34.0" layoutY="358.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0">
-
+            <HBox spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0">
+                <Button mnemonicParsing="false" styleClass="btn" text="Rest" onAction="#handleRestPerson"/>
                 <Button mnemonicParsing="false" styleClass="btn" text="New" />
                 <Button mnemonicParsing="false" styleClass="btn" text="Edit" />
                 <Button mnemonicParsing="false" styleClass="btn" text="Delete" />

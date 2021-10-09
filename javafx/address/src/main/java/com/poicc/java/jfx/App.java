@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @description: 启动主类
@@ -53,6 +54,8 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 980, 600);
         stage.setTitle("AddressBook");
         stage.setScene(scene);
+        stage.setResizable(AppConfig.stageResizable);
+        stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream(AppConfig.icon))));
         PersonCtrl controller = fxmlLoader.getController();
         controller.setApp(this);
         stage.show();
