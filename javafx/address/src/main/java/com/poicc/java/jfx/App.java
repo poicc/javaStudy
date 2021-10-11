@@ -1,8 +1,11 @@
 package com.poicc.java.jfx;
 
+import com.poicc.java.jfx.config.AppConfig;
 import com.poicc.java.jfx.model.Person;
+import com.poicc.java.jfx.view.BirthdayStatisticsController;
 import com.poicc.java.jfx.view.PersonCtrl;
 import com.poicc.java.jfx.view.PersonEditController;
+import com.poicc.java.jfx.view.RootController;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,10 +14,12 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @description: 启动主类
@@ -60,12 +65,13 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
+        this.stage.getIcons().add(new Image(Objects.requireNonNull(App.class.getResourceAsStream(AppConfig.icon))));
         stage.setTitle("AddressBook");
         initRootLayout();
         showPerson();
     }
 
-    private void showPerson() {
+    public void showPerson() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("view/person.fxml"));
@@ -78,30 +84,19 @@ public class App extends Application {
         }
     }
 
-    public void showNewPersonStage() {
-        try{
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(App.class.getResource("view/person-edit.fxml"));
-            AnchorPane anchorPane = loader.load();
-            Stage editStage = new Stage();
-            Scene scene = new Scene(anchorPane,640,480);
-            editStage.setScene(scene);
-            PersonEditController controller = loader.getController();
-            controller.setEditStage(editStage);
-            controller.setMainApp(this);
-            editStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void initRootLayout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("view/root-layout.fxml"));
             rootLayout = fxmlLoader.load();
-            Scene scene = new Scene(rootLayout, 820, 540);
+            RootController rootController = fxmlLoader.getController();
+            rootController.setApp(this);
+            //创建以根布局为内容的场景
+            Scene scene = new Scene(rootLayout);
+            scene.getStylesheets().add(Objects.requireNonNull(App.class.getResource("css/style.css")).toExternalForm());
+            //主窗体加入根布局
             stage.setScene(scene);
+            stage.setResizable(AppConfig.stageResizable);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -110,6 +105,41 @@ public class App extends Application {
 
     public ObservableList<Person> getPersonData() {
         return personData;
+    }
+
+    public void showEditPerson(Person person,String type) {
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("view/person-edit.fxml"));
+            AnchorPane anchorPane = loader.load();
+            //根布局中间部分加入人员编辑面板
+            rootLayout.setCenter(anchorPane);
+            //获取PersonEditController控制器
+            PersonEditController controller = loader.getController();
+            controller.setArgs(person,type);
+            controller.setMainApp(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showBirthdayStatistics(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("view/birthday-statistics.fxml"));
+            AnchorPane anchorPane = loader.load();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Birthday Statistics");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(stage);
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+            BirthdayStatisticsController controller = loader.getController();
+            controller.setPersonData(personData);
+            dialogStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

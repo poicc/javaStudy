@@ -1,6 +1,7 @@
 package com.poicc.java.jfx.view;
 
 import com.poicc.java.jfx.App;
+import com.poicc.java.jfx.constant.AppConstant;
 import com.poicc.java.jfx.model.Person;
 import com.poicc.java.jfx.util.DateUtil;
 import javafx.collections.FXCollections;
@@ -11,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -140,8 +142,25 @@ public class PersonCtrl {
         }
     }
 
+    /**
+     * 新增人员
+     */
     public void handleNewPerson() {
-        app.showNewPersonStage();
-        app.getStage().setIconified(true);
+        Person tempPerson = new Person("张三","软件","女","江苏南京", LocalDate.of(2000,1,1),
+                new Image("https://avatars.githubusercontent.com/u/59445871?v=4"));
+        app.showEditPerson(tempPerson, AppConstant. NEW_PERSON);
+    }
+
+    public void handleEditPerson() {
+        Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
+        if(selectedPerson != null) {
+            app.showEditPerson(selectedPerson,AppConstant.EDIT_PERSON);
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("提示");
+            a.setHeaderText("错误操作");
+            a.setContentText("必须选择人员才能编辑");
+            a.showAndWait();
+        }
     }
 }

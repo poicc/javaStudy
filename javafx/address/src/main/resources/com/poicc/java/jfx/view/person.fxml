@@ -85,7 +85,7 @@
             <HBox spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0">
                 <Button mnemonicParsing="false" onAction="#handleRestPerson" styleClass="btn" text="Rest"/>
                 <Button mnemonicParsing="false" styleClass="btn" text="New" onAction="#handleNewPerson"/>
-                <Button mnemonicParsing="false" styleClass="btn" text="Edit"/>
+                <Button mnemonicParsing="false" styleClass="btn" text="Edit" onAction="#handleEditPerson"/>
                 <Button mnemonicParsing="false" styleClass="btn" text="Delete" onAction="#handleDeletePerson"/>
             </HBox>
         </AnchorPane>

@@ -1,16 +1,16 @@
 package com.poicc.java.jfx.view;
 
 import com.poicc.java.jfx.App;
+import com.poicc.java.jfx.constant.AppConstant;
 import com.poicc.java.jfx.model.Person;
-import com.poicc.java.jfx.util.DateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 /**
  * @description:
  * @author: crq
@@ -22,6 +22,8 @@ public class PersonEditController {
     private Stage editStage;
 
     private App mainApp;
+    private Person person;
+    private String type;
 
 
     @FXML
@@ -43,13 +45,17 @@ public class PersonEditController {
     private TextField addressField;
 
     @FXML
-    private TextField birthdayField;
+    private DatePicker birthdayPicker;
 
     @FXML
     private TextField avatarField;
 
+
     @FXML
     private void initialize() {
+//        group.selectedToggleProperty().addListener((ov, oldVal, newVal) -> {
+//            person.setGender(group.getSelectedToggle().getUserData().toString());
+//        });
     }
 
     public void setEditStage(Stage editStage) {
@@ -61,26 +67,35 @@ public class PersonEditController {
     }
 
     public void handleSubmit(ActionEvent actionEvent) {
-        Person person = new Person();
         person.setName(nameField.getText());
         person.setClazz(clazzField.getText());
         person.setAddress(addressField.getText());
         person.setAvatar(new Image(avatarField.getText()));
-        person.setBirthday(DateUtil.parse(birthdayField.getText()));
-        person.setGender("男");
-        //注意性别单选按钮的写法
-        group.selectedToggleProperty().addListener((ov, oldVal, newVal) -> {
-            System.out.println("性别");
-            System.out.println(group.getSelectedToggle().getUserData().toString());
-            person.setGender(group.getSelectedToggle().getUserData().toString());
+        person.setBirthday(birthdayPicker.getValue());
+        person.setGender(group.getSelectedToggle().getUserData().toString());
+       if(this.type.equals(AppConstant.NEW_PERSON)) {
+           mainApp.getPersonData().add(person);
+       }
+        mainApp.showPerson();
+    }
+
+    public void setArgs(Person person,String type) {
+        this.person = person;
+        this.type = type;
+        nameField.setText(person.getName());
+        clazzField.setText(person.getClazz());
+        group.getToggles().forEach(toggle -> {
+            if(toggle.getUserData().toString().equals(person.getGender())) {
+                toggle.setSelected(true);
+            }
         });
-        mainApp.getPersonData().add(person);
-        editStage.close();
-        mainApp.getStage().setIconified(false);
+        addressField.setText(person.getAddress());
+        avatarField.setText(person.getAvatar().getUrl());
+        birthdayPicker.setValue(person.getBirthday());
     }
 
     public void handleCancel(ActionEvent actionEvent) {
-        editStage.close();
-        mainApp.getStage().setIconified(false);
+        mainApp.showPerson();
     }
+
 }

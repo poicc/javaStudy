@@ -19,7 +19,7 @@ public class AppConfig {
     /**
      * 应用默认图标
      */
-    public static String icon = "icon/2.jpg";
+    public static String icon = "icon/3.png";
     /**
      * 窗口默认宽度
      */
