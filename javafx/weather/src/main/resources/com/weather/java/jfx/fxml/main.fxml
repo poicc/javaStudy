@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="root"
+            stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="com.weather.java.jfx.ctrl.MainCtrl">
+    <VBox alignment="TOP_CENTER" layoutX="250.0" layoutY="250.0" prefHeight="200.0" prefWidth="100.0" spacing="30.0"
+          AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0"
+          AnchorPane.topAnchor="80.0">
+        <Label styleClass="title" text="Today's Weather"/>
+        <HBox spacing="20.0">
+            <TextField styleClass="input" fx:id="cityInput"/>
+            <Button mnemonicParsing="false" onAction="#getWeatherData" prefHeight="23.0" prefWidth="67.0"
+                    styleClass="btn" text="Search"/>
+        </HBox>
+        <Text styleClass="text" fx:id="weatherText"/>
+    </VBox>
+</AnchorPane>
