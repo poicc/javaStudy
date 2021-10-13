@@ -59,6 +59,7 @@ public class PersonCtrl {
 
     @FXML
     private void initialize() {
+        System.out.println("我执行了");
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         clazzColumn.setCellValueFactory(cellData -> cellData.getValue().clazzProperty());
         genderColumn.setCellValueFactory(cellData -> cellData.getValue().genderProperty());
@@ -148,7 +149,7 @@ public class PersonCtrl {
     public void handleNewPerson() {
         Person tempPerson = new Person("张三","软件","女","江苏南京", LocalDate.of(2000,1,1),
                 new Image("https://avatars.githubusercontent.com/u/59445871?v=4"));
-        app.showEditPerson(tempPerson, AppConstant. NEW_PERSON);
+        app.showEditPerson(tempPerson, AppConstant.NEW_PERSON);
     }
 
     public void handleEditPerson() {
