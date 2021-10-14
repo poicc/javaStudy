@@ -40,7 +40,6 @@ public class MainCtrl{
     public String getWoeid() {
         String cityApi = "https://www.metaweather.com/api/location/search/?query=";
         ApiConnector apiConnectorCity = new ApiConnector(cityApi);
-        System.out.println(apiConnectorCity.getJsonArray(cityInput.getText()));
         JSONObject jsonData = (JSONObject)
                 (apiConnectorCity.getJsonArray(cityInput.getText())).get(0);
         return jsonData.get("woeid").toString();

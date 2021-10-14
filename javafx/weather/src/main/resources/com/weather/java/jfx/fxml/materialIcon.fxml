@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<HBox xmlns="http://javafx.com/javafx"
+      stylesheets="@../css/main.css"
+      spacing="20" alignment="CENTER_LEFT">
+    <padding>
+        <Insets left="30.0" right="30.0"/>
+    </padding>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#00897B" iconLiteral="mdi-beach"/>
+        <FontIcon iconColor="#ca52a2" iconLiteral="mdi-account-box" StackedFontIcon.iconSize="0.5"/>
+    </StackedFontIcon>
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#36a4a4" iconLiteral="mdi-alarm-check"/>
+    </StackedFontIcon>
+
+    <!--这个图标只能默认大小-->
+    <FontIcon iconColor="#0097A7" iconLiteral="mdi-bike"/>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#36a4a4" iconLiteral="mdi-access-point"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#546E7A" iconLiteral="mdi-boombox"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#3eb25e" iconLiteral="mdi-android"/>
+    </StackedFontIcon>
+
+    <StackedFontIcon iconSize="48">
+        <FontIcon iconColor="#07140b" iconLiteral="mdi-apple"/>
+    </StackedFontIcon>
+
+    <!--带字体图标的按钮-->
+    <Button prefHeight="40" prefWidth="90" style="-fx-font-size: 16;-fx-background-color: #579ebb;-fx-cursor: hand;"
+            text="评论">
+        <graphic>
+            <StackedFontIcon iconSize="24">
+                <FontIcon iconColor="#f6f6f6" iconLiteral="mdi-comment-processing-outline"/>
+            </StackedFontIcon>
+        </graphic>
+    </Button>
+
+</HBox>

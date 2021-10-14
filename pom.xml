@@ -18,6 +18,8 @@
         <assertj.core.version>3.13.2</assertj.core.version>
         <lombok.version>1.18.12</lombok.version>
         <logback.classic.version>1.2.3</logback.classic.version>
+        <javatuples>1.2</javatuples>
+        <vavr>0.10.4</vavr>
     </properties>
 
     <dependencies>
@@ -46,6 +48,16 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.classic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>${javatuples}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vavr</groupId>
+            <artifactId>vavr</artifactId>
+            <version>${vavr}</version>
         </dependency>
     </dependencies>
 
