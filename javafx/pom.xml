@@ -21,6 +21,7 @@
     <module>address</module>
     <module>first</module>
     <module>weather</module>
+    <module>linechar</module>
   </modules>
 
   <dependencyManagement>
