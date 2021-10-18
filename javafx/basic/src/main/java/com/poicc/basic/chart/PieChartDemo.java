@@ -12,6 +12,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 /**
  * @author crq
@@ -20,10 +22,10 @@ public class PieChartDemo extends Application {
 
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ParseException {
         PieChart pieChart = new PieChart();
         pieChart.setData(getChartData());
-        pieChart.setTitle("饼图");
+        pieChart.setTitle("JVM使用情况");
         pieChart.setLegendSide(Side.LEFT);
         pieChart.setClockwise(false);
         pieChart.setLabelsVisible(false);
@@ -33,21 +35,22 @@ public class PieChartDemo extends Application {
         stage.show();
     }
 
-    private ObservableList<PieChart.Data> getChartData()
-    {
+    private ObservableList<PieChart.Data> getChartData() throws ParseException {
         JSONObject jsonObject = SystemInfoUtil.getInfo();
-        System.out.println(jsonObject.getJSONObject("memInfo").get("usageRate"));
+        NumberFormat nf = NumberFormat.getPercentInstance();
         String mem = jsonObject.getJSONObject("memInfo").get("usageRate").toString();
-        Double memInfo = Double.valueOf(mem.substring(0,mem.length() - 1));
+        Number m1 = nf.parse(mem);
+        Double memInfo = m1.doubleValue();
         String jvm = jsonObject.getJSONObject("jvmInfo").get("usageRate").toString();
-        Double jvmInfo = Double.valueOf(jvm.substring(0,jvm.length() - 1));
+        Number m2 = nf.parse(jvm);
+        Double jvmInfo = m2.doubleValue();
         String cpu = jsonObject.getJSONObject("cpuInfo").get("cSys").toString();
-        Double cpuInfo = Double.valueOf(cpu.substring(0,cpu.length() - 1));
+        Number m3 = nf.parse(jvm);
+        Double cpuInfo = m3.doubleValue();
         ObservableList<javafx.scene.chart.PieChart.Data> answer =
                 FXCollections.observableArrayList();
-        answer.addAll(new PieChart.Data("内存使用情况", memInfo),
-                new PieChart.Data("jvm使用情况", jvmInfo),
-                new PieChart.Data("CPU使用情况", cpuInfo)
+        answer.addAll(new PieChart.Data("已使用", jvmInfo),
+                new PieChart.Data("空闲", 1 - jvmInfo)
         );
         return answer;
     }

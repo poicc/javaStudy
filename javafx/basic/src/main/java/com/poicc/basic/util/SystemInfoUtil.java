@@ -119,6 +119,7 @@ public class SystemInfoUtil {
                 totalByte));
         return cpuInfo;
     }
+
     /**
      * 所有系统信息
      */
