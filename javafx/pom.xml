@@ -25,6 +25,7 @@
     <module>weather</module>
     <module>linechar</module>
     <module>basic</module>
+    <module>notepad</module>
   </modules>
 
   <dependencyManagement>
