@@ -26,6 +26,7 @@
     <module>linechar</module>
     <module>basic</module>
     <module>notepad</module>
+    <module>chat-ui</module>
   </modules>
 
   <dependencyManagement>
