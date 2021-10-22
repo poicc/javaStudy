@@ -4,7 +4,7 @@
 
 #operation {
     -fx-background-color: transparent;
-    -fx-background-image: url("../img/banner.png");
+    -fx-background-image: url("https://c-ssl.duitang.com/uploads/blog/202108/06/20210806155957_2a45b.thumb.1000_0.jpg");
     -fx-background-size: cover;
 }
 
@@ -49,7 +49,7 @@
     -fx-border-color: #f1f1f1;
     -fx-background-radius: 4px;
     -fx-border-radius: 4px;
-    -fx-background-image: url("../img/ayy.jpg");
+    -fx-background-image: url("https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png");
     -fx-background-size: cover;
     -fx-opacity: 0.7;
 }
