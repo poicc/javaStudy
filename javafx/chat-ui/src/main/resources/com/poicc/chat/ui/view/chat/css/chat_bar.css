@@ -1,0 +1,40 @@
+/* 控制栏 */
+#bar {
+    -fx-background-color: #28282c;
+    -fx-background-radius: 4px 0px 0px 4px;
+}
+
+#barPortrait, #barPortrait:hover, #barPortrait:pressed {
+    -fx-background-radius: 2px;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 50px 50px;
+    -fx-background-color: #f6f6f6;
+    -fx-background-image: url("https://t.ly/HEjv");
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: #f6f6f6;
+}
+
+.bar {
+    -fx-background-radius: 2px;
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+    -fx-border-color: transparent;
+}
+
+
+.groupBarChat {
+    -fx-background-color: linear-gradient(to top, #9795f0, #fbc8d4);
+}
+
+.groupBarFriend {
+    -fx-background-color: linear-gradient(to top, #5ee7df, #b490ca);
+}
+
+.groupBarLocation {
+    -fx-background-color: linear-gradient(to right, #eea2a2, #b49fda);
+}

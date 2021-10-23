@@ -1,6 +1,8 @@
 module com.poicc.chatui {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.ikonli.materialdesign;
 
 
     opens com.poicc.chat.ui to javafx.fxml;

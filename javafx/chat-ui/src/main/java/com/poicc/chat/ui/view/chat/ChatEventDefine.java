@@ -15,10 +15,10 @@ public class ChatEventDefine {
     public ChatEventDefine(ChatInit chatInit) {
         this.chatInit = chatInit;
         chatInit.move();
-        barChat();
-        barFriend();
-        barLocation();
-        barSet();
+        this.barChat();
+        this.barFriend();
+        this.barLocation();
+        this.barSet();
     }
 
     /**
@@ -29,7 +29,13 @@ public class ChatEventDefine {
      * @param toggle       toggle
      */
     private void switchBarChat(Button barChat, Pane groupBarChat, boolean toggle) {
-        groupBarChat.setVisible(toggle);
+        if(toggle) {
+            groupBarChat.setVisible(true);
+            barChat.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+        } else {
+            groupBarChat.setVisible(false);
+            barChat.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        }
     }
 
     /**
@@ -40,7 +46,13 @@ public class ChatEventDefine {
      * @param toggle         toggle
      */
     private void switchBarFriend(Button barFriend, Pane groupBarFriend, boolean toggle) {
-        groupBarFriend.setVisible(toggle);
+        if(toggle) {
+            groupBarFriend.setVisible(true);
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+        } else {
+            groupBarFriend.setVisible(false);
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        }
     }
 
     /**
@@ -51,7 +63,13 @@ public class ChatEventDefine {
      * @param toggle         toggle
      */
     private void switchBarLocation(Button barLocation, Pane groupBarFriend, boolean toggle) {
-        groupBarFriend.setVisible(toggle);
+        if(toggle) {
+            groupBarFriend.setVisible(true);
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+        } else {
+            groupBarFriend.setVisible(false);
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        }
     }
 
     /**
@@ -62,7 +80,13 @@ public class ChatEventDefine {
      * @param toggle         toggle
      */
     private void switchBarSet(Button barSet, Pane groupBarFriend, boolean toggle) {
-        groupBarFriend.setVisible(toggle);
+        if(toggle) {
+            groupBarFriend.setVisible(true);
+            barSet.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+        } else {
+            groupBarFriend.setVisible(false);
+            barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        }
     }
 
 
@@ -77,6 +101,20 @@ public class ChatEventDefine {
             switchBarFriend(chatInit.$("barFriend", Button.class), chatInit.$("groupBarFriend", Pane.class), false);
             switchBarLocation(chatInit.$("barLocation", Button.class), chatInit.$("groupBarLocation", Pane.class), false);
             switchBarSet(chatInit.$("barSet", Button.class), chatInit.$("groupBarSet", Pane.class), false);
+        });
+        barChat.setOnMouseEntered(event -> {
+            boolean visible = groupBarChat.isVisible();
+            if(visible) {
+                return;
+            }
+            barChat.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+        });
+        barChat.setOnMouseExited(event -> {
+            boolean visible = groupBarChat.isVisible();
+            if(visible) {
+                return;
+            }
+            barChat.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
         });
     }
 
@@ -93,6 +131,20 @@ public class ChatEventDefine {
                     switchBarFriend(barFriend, groupBarFriend, true);
                 }
         );
+        barFriend.setOnMouseEntered(event -> {
+            boolean visible = groupBarFriend.isVisible();
+            if(visible) {
+                return;
+            }
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+        });
+        barFriend.setOnMouseExited(event -> {
+            boolean visible = groupBarFriend.isVisible();
+            if(visible) {
+                return;
+            }
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        });
     }
 
 
@@ -109,6 +161,20 @@ public class ChatEventDefine {
                     switchBarLocation(barLocation, groupBarLocation, true);
                 }
         );
+        barLocation.setOnMouseEntered(event -> {
+            boolean visible = groupBarLocation.isVisible();
+            if(visible) {
+                return;
+            }
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+        });
+        barLocation.setOnMouseExited(event -> {
+            boolean visible = groupBarLocation.isVisible();
+            if(visible) {
+                return;
+            }
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        });
     }
 
     /**
@@ -124,5 +190,19 @@ public class ChatEventDefine {
                     switchBarSet(barSet, groupBarSet, true);
                 }
         );
+        barSet.setOnMouseEntered(event -> {
+            boolean visible = groupBarSet.isVisible();
+            if(visible) {
+                return;
+            }
+            barSet.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+        });
+        barSet.setOnMouseExited(event -> {
+            boolean visible = groupBarSet.isVisible();
+            if(visible) {
+                return;
+            }
+            barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+        });
     }
 }
