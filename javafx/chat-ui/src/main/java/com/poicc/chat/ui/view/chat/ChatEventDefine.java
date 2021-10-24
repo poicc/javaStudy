@@ -31,7 +31,7 @@ public class ChatEventDefine {
     private void switchBarChat(Button barChat, Pane groupBarChat, boolean toggle) {
         if(toggle) {
             groupBarChat.setVisible(true);
-            barChat.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+            barChat.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         } else {
             groupBarChat.setVisible(false);
             barChat.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
@@ -48,7 +48,7 @@ public class ChatEventDefine {
     private void switchBarFriend(Button barFriend, Pane groupBarFriend, boolean toggle) {
         if(toggle) {
             groupBarFriend.setVisible(true);
-            barFriend.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         } else {
             groupBarFriend.setVisible(false);
             barFriend.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
@@ -65,7 +65,7 @@ public class ChatEventDefine {
     private void switchBarLocation(Button barLocation, Pane groupBarFriend, boolean toggle) {
         if(toggle) {
             groupBarFriend.setVisible(true);
-            barLocation.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         } else {
             groupBarFriend.setVisible(false);
             barLocation.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
@@ -82,7 +82,7 @@ public class ChatEventDefine {
     private void switchBarSet(Button barSet, Pane groupBarFriend, boolean toggle) {
         if(toggle) {
             groupBarFriend.setVisible(true);
-            barSet.getGraphic().setStyle("-fx-icon-color:'#9E99EE'");
+            barSet.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         } else {
             groupBarFriend.setVisible(false);
             barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
@@ -107,14 +107,14 @@ public class ChatEventDefine {
             if(visible) {
                 return;
             }
-            barChat.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+            barChat.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         });
         barChat.setOnMouseExited(event -> {
             boolean visible = groupBarChat.isVisible();
             if(visible) {
                 return;
             }
-            barChat.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+            barChat.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
         });
     }
 
@@ -136,14 +136,14 @@ public class ChatEventDefine {
             if(visible) {
                 return;
             }
-            barFriend.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         });
         barFriend.setOnMouseExited(event -> {
             boolean visible = groupBarFriend.isVisible();
             if(visible) {
                 return;
             }
-            barFriend.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+            barFriend.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
         });
     }
 
@@ -166,14 +166,14 @@ public class ChatEventDefine {
             if(visible) {
                 return;
             }
-            barLocation.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         });
         barLocation.setOnMouseExited(event -> {
             boolean visible = groupBarLocation.isVisible();
             if(visible) {
                 return;
             }
-            barLocation.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+            barLocation.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
         });
     }
 
@@ -195,14 +195,14 @@ public class ChatEventDefine {
             if(visible) {
                 return;
             }
-            barSet.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
+            barSet.getGraphic().setStyle("-fx-icon-color:'#26A69A'");
         });
         barSet.setOnMouseExited(event -> {
             boolean visible = groupBarSet.isVisible();
             if(visible) {
                 return;
             }
-            barSet.getGraphic().setStyle("-fx-icon-color:'#6F6F70'");
+            barSet.getGraphic().setStyle("-fx-icon-color:'#F6F6F6'");
         });
     }
 }

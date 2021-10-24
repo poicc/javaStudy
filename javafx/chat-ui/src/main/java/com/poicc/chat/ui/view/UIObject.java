@@ -18,6 +18,11 @@ public abstract class UIObject extends Stage {
         return (T) root.lookup("#" + id);
     }
 
+    public <T> T $(String id) {
+        return (T) root.lookup("#" + id);
+    }
+
+
     /**
      * 窗体拖拽移动
      */

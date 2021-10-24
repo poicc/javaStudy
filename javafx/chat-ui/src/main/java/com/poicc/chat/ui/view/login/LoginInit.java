@@ -42,18 +42,18 @@ public class LoginInit extends UIObject {
         setScene(scene);
         initStyle(StageStyle.TRANSPARENT);
         setResizable(false);
-//        obtain();
+        obtain();
         initView();
         initEventDefine();
     }
 
-//    private void obtain() {
-//        loginMin = $("loginMin");
-//        loginClose = $("loginClose");
-//        loginButton = $("loginButton");
-//        userId = $("userId");
-//        userPassword = $("userPassword");
-//    }
+    private void obtain() {
+        loginMin = $("loginMin");
+        loginClose = $("loginClose");
+        loginButton = $("loginButton");
+        userId = $("userId");
+        userPassword = $("userPassword");
+    }
 
 
     @Override

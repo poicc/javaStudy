@@ -16,9 +16,9 @@ public class LoginEventDefine {
         this.loginMethod = loginMethod;
 
         loginInit.move();
-        min();
-        quit();
-        doEventLogin();
+        this.min();
+        this.quit();
+        this.doEventLogin();
     }
 
     /**

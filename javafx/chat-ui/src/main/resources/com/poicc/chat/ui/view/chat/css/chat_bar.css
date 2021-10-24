@@ -10,7 +10,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: 50px 50px;
     -fx-background-color: #f6f6f6;
-    -fx-background-image: url("https://t.ly/HEjv");
+    -fx-background-image: url("https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png");
     -fx-cursor: hand;
     -fx-border-width: 1px;
     -fx-border-radius: 2px;
@@ -28,13 +28,16 @@
 
 
 .groupBarChat {
-    -fx-background-color: linear-gradient(to top, #9795f0, #fbc8d4);
+    -fx-background-color: linear-gradient(to right, #114357, #f29492);
 }
 
 .groupBarFriend {
-    -fx-background-color: linear-gradient(to top, #5ee7df, #b490ca);
+    -fx-background-color: linear-gradient(to right, #085078, #85d8ce);
 }
 
 .groupBarLocation {
-    -fx-background-color: linear-gradient(to right, #eea2a2, #b49fda);
+    -fx-background-color: linear-gradient(to right, #536976, #292e49);
+}
+.groupBarSet {
+    -fx-background-color: linear-gradient(to right, #606c88, #3f4c6b);
 }

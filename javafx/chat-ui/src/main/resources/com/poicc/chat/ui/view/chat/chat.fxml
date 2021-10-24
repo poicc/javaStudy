@@ -17,7 +17,7 @@
         <Button id="barChat" layoutX="23" layoutY="100" mnemonicParsing="false" prefHeight="30" prefWidth="30" styleClass="bar">
             <graphic>
                 <StackedFontIcon iconSize="32">
-                    <FontIcon iconColor="#9E99EE" iconLiteral="mdi-access-point"/>
+                    <FontIcon iconColor="#26A69A" iconLiteral="mdi-access-point"/>
                 </StackedFontIcon>
             </graphic>
         </Button>
