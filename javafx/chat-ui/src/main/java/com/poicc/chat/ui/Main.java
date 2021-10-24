@@ -1,11 +1,9 @@
 package com.poicc.chat.ui;
 
 import com.poicc.chat.ui.view.chat.ChatController;
+import com.poicc.chat.ui.view.chat.IChatEvent;
 import com.poicc.chat.ui.view.chat.IChatMethod;
-import com.poicc.chat.ui.view.login.ILoginMethod;
-import com.poicc.chat.ui.view.login.LoginController;
 import javafx.application.Application;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,28 +15,62 @@ import java.util.Date;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        ILoginMethod login = new LoginController((userId, userPassword) -> {
-            if("admin".equals(userId) && "123456".equals(userPassword)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.titleProperty().set("提示");
-                alert.headerTextProperty().set("登录成功！");
-                alert.showAndWait();
-                IChatMethod  chat = new ChatController();
-                chat.doShow();
-                // 填充对话框测试数据
-                chat.addTalkBox(-1, 0, "1000001", "陶然然", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "开到荼蘼", new Date(), true);
-                chat.addTalkBox(-1, 0, "1000002", "杨阳", "https://avatars.githubusercontent.com/u/46114572?v=4", "这世界只有10种人，一种是程序员，一种不是。", new Date(), false);
-                chat.addTalkBox(-1, 0, "1000003", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "PuTTY本无树，MinGW亦非台。", new Date(), false);
-                chat.addTalkBox(-1, 0, "1000005", "王林", "https://cdn.jsdelivr.net/gh/poicc/image@main/wl.3vo9zify6440.jpg", "生产队的驴", new Date(), false);
-//                chat.addTalkBox(-1, 0, "1000007", "筠竹苑联谊群", "http://www.wanandroid.com/blogimgs/cf1cf10c-4450-4ef4-a857-1b8d9e14ab03.PNG", "松山院~学习之路", new Date(), false);
-                chat.addTalkBox(0, 1, "1000006", "微信运动", "http://images.shejidaren.com/wp-content/uploads/2020/03/36365-2.png", "应用消息", new Date(), false);
-                chat.addTalkBox(0, 1, "1000008", "学习之路", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo2.2p5ggyfnrha0.png", "学习之路", new Date(), false);
-                chat.addTalkBox(0, 1, "1000009", "极客营", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo.45sw0xll2k60.png", "极客营", new Date(), false);
-                chat.addTalkBox(0, 1, "5307397", "松山院", "https://cdn.jsdelivr.net/gh/poicc/image@main/ssy.6ri61mw42ko0.png", "松山院~学习之路", new Date(), false);
-                chat.addTalkBox(0, 1, "5307398", "终生学习者", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo1.u02ftgk681c.png", "终身学习者", new Date(), false);
-            }
+        IChatMethod chat = new ChatController(new IChatEvent() {
         });
-        login.doShow();
+        chat.doShow();
+        chat.setUserInfo("1000001", "poicc", "https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png");
+
+        // 好友 - 对话框
+        chat.addTalkBox(-1, 0, "1000001", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "走", new Date(), true);
+        chat.addTalkMsgRight("1000001", "干饭吗", new Date(), true, true, false);
+        chat.addTalkMsgUserLeft("1000001", "干饭吗", new Date(), true, false, true);
+
+        chat.addTalkBox(-1, 0, "1000003", "猩猩", "http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20200223/e0056209511341bfabad4ea8463b322c.jpeg", "不会还有人在学习吧", new Date(), false);
+        chat.addTalkMsgRight("1000003", "快推文快推文", new Date(), true, false, false);
+        chat.addTalkMsgUserLeft("1000003", "拒绝", new Date(), true, false, true);
+        chat.addTalkMsgUserLeft("1000003", "不给", new Date(), true, true, true);
+
+        chat.addTalkBox(-1, 0, "1000004", "赖慧林", "https://i01piccdn.sogoucdn.com/2e471a61f64b4b81", "乌拉", new Date(), false);
+        chat.addTalkMsgRight("1000004", "点名了叫我", new Date(), true, false, false);
+        chat.addTalkMsgUserLeft("1000004", "乌拉", new Date(), true, true, false);
+        chat.addTalkMsgUserLeft("1000004", "乌拉乌拉", new Date(), true, false, true);
+
+        // 群组 - 对话框
+
+        chat.addTalkBox(0, 1, "5307398", "筠竹苑联谊群", "https://cdn.jsdelivr.net/gh/poicc/image@main/2.5ycxoeqclio0.jpg", "笑死", new Date(), false);
+        chat.addTalkMsgRight("5307398", "我要看男酮", new Date(), true, true, false);
+        chat.addTalkMsgGroupLeft("5307398", "1000001", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "芜湖", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307398", "1000006", "杨阳", "https://avatars.githubusercontent.com/u/46114572?v=4", "修电脑，单身狗", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307398", "1000005", "poi", "https://cdn.jsdelivr.net/gh/poicc/image@main/wl.3vo9zify6440.jpg", "这里没有男酮", new Date(), true, false, true);
+
+
+        chat.addTalkBox(0, 1, "5307397", "家族群", "http://img.yao51.com/jiankangtuku/oiibbpoojz.jpeg", "早上好", new Date(), false);
+        chat.addTalkMsgRight("5307397", "早上好", new Date(), true, true, false);
+        chat.addTalkMsgGroupLeft("5307397", "1000001", "阖家欢乐", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW2ZCfRrJ3kcVYVr6i1_jjCZ7SXzW7Vrygow&usqp=CAU", "早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000006", "挥汗如雨", "http://inews.gtimg.com/newsapp_bt/0/13353726598/1000", "大家早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000005", "幸福人生", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
+//        ILoginMethod login = new LoginController((userId, userPassword) -> {
+//            if("admin".equals(userId) && "123456".equals(userPassword)) {
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.titleProperty().set("提示");
+//                alert.headerTextProperty().set("登录成功！");
+//                alert.showAndWait();
+//                IChatMethod  chat = new ChatController();
+//                chat.doShow();
+//                // 填充对话框测试数据
+//                chat.addTalkBox(-1, 0, "1000001", "陶然然", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "开到荼蘼", new Date(), true);
+//                chat.addTalkBox(-1, 0, "1000002", "杨阳", "https://avatars.githubusercontent.com/u/46114572?v=4", "这世界只有10种人，一种是程序员，一种不是。", new Date(), false);
+//                chat.addTalkBox(-1, 0, "1000003", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "PuTTY本无树，MinGW亦非台。", new Date(), false);
+//                chat.addTalkBox(-1, 0, "1000005", "王林", "https://cdn.jsdelivr.net/gh/poicc/image@main/wl.3vo9zify6440.jpg", "生产队的驴", new Date(), false);
+//                chat.addTalkBox(-1, 0, "1000007", "筠竹苑联谊群", "https://cdn.jsdelivr.net/gh/poicc/image@main/2.5ycxoeqclio0.jpg", "松山院~学习之路", new Date(), false);
+//                chat.addTalkBox(0, 1, "1000006", "微信运动", "http://images.shejidaren.com/wp-content/uploads/2020/03/36365-2.png", "应用消息", new Date(), false);
+//                chat.addTalkBox(0, 1, "1000008", "学习之路", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo2.2p5ggyfnrha0.png", "学习之路", new Date(), false);
+//                chat.addTalkBox(0, 1, "1000009", "极客营", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo.45sw0xll2k60.png", "极客营", new Date(), false);
+//                chat.addTalkBox(0, 1, "5307397", "松山院", "https://cdn.jsdelivr.net/gh/poicc/image@main/ssy.6ri61mw42ko0.png", "松山院~学习之路", new Date(), false);
+//                chat.addTalkBox(0, 1, "5307398", "终生学习者", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo1.u02ftgk681c.png", "终身学习者", new Date(), false);
+//            }
+//        });
+//        login.doShow();
     }
 
 
