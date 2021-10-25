@@ -20,10 +20,11 @@ public class Main extends Application {
         chat.doShow();
         chat.setUserInfo("1000001", "poicc", "https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png");
 
+
         // 好友 - 对话框
-        chat.addTalkBox(-1, 0, "1000001", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "走", new Date(), true);
-        chat.addTalkMsgRight("1000001", "干饭吗", new Date(), true, true, false);
-        chat.addTalkMsgUserLeft("1000001", "干饭吗", new Date(), true, false, true);
+        chat.addTalkBox(-1, 0, "1000002", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "走", new Date(), false);
+        chat.addTalkMsgRight("1000002", "干饭吗", new Date(), true, true, false);
+        chat.addTalkMsgUserLeft("1000002", "干饭吗", new Date(), true, false, true);
 
         chat.addTalkBox(-1, 0, "1000003", "猩猩", "http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20200223/e0056209511341bfabad4ea8463b322c.jpeg", "不会还有人在学习吧", new Date(), false);
         chat.addTalkMsgRight("1000003", "快推文快推文", new Date(), true, false, false);
@@ -49,6 +50,10 @@ public class Main extends Application {
         chat.addTalkMsgGroupLeft("5307397", "1000001", "阖家欢乐", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW2ZCfRrJ3kcVYVr6i1_jjCZ7SXzW7Vrygow&usqp=CAU", "早上好", new Date(), true, false, true);
         chat.addTalkMsgGroupLeft("5307397", "1000006", "挥汗如雨", "http://inews.gtimg.com/newsapp_bt/0/13353726598/1000", "大家早上好", new Date(), true, false, true);
         chat.addTalkMsgGroupLeft("5307397", "1000005", "幸福人生", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
+
+        chat.addTalkBox(-1, 0, "1000001", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "宝藏老班", new Date(), true);
+        chat.addTalkMsgUserLeft("1000001", "Hi，我通过你的好友请求了 现在我们可以开始聊天啦", new Date(), true, false, true);
+        chat.addTalkMsgRight("1000001", "终于加上老班啦", new Date(), true, true, false);
 //        ILoginMethod login = new LoginController((userId, userPassword) -> {
 //            if("admin".equals(userId) && "123456".equals(userPassword)) {
 //                Alert alert = new Alert(Alert.AlertType.INFORMATION);

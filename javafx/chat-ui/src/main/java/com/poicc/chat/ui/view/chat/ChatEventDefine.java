@@ -1,6 +1,7 @@
 package com.poicc.chat.ui.view.chat;
 
 import com.poicc.chat.ui.view.chat.data.TalkBoxData;
+import com.poicc.chat.ui.view.face.FaceController;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
@@ -32,6 +33,7 @@ public class ChatEventDefine {
         this.barSet();
         doEventTextSend();   // 发送消息事件[键盘]
         doEventTouchSend();  // 发送消息事件[按钮]
+        doEventToolFace();   //聊天框处理事件
     }
 
     /**
@@ -269,7 +271,7 @@ public class ChatEventDefine {
         Pane selectedItem = (Pane) selectionModel.getSelectedItem();
         // 对话信息
         TalkBoxData talkBoxData = (TalkBoxData) selectedItem.getUserData();
-        String msg = txt_input.getText();
+        String msg = txt_input.getText().trim();
         if (null == msg || "".equals(msg) ||"".equals(msg.trim())) {return;}
         Date msgDate = new Date();
         // 发送消息
@@ -277,5 +279,16 @@ public class ChatEventDefine {
         // 发送事件给自己添加消息
         chatMethod.addTalkMsgRight(talkBoxData.getTalkId(), msg, msgDate, true, true, false);
         txt_input.clear();
+    }
+
+    /**
+     * 处理表情框事件
+     */
+    private void doEventToolFace() {
+        FaceController face = new FaceController(chatInit, chatInit, chatEvent, chatMethod);
+        Button tool_face = chatInit.$("tool_face", Button.class);
+        tool_face.setOnMousePressed(event -> {
+            face.doShowFace(chatMethod.getToolFaceX(), chatMethod.getToolFaceY());
+        });
     }
 }

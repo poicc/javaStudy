@@ -22,6 +22,21 @@ public abstract class UIObject extends Stage {
         return (T) root.lookup("#" + id);
     }
 
+    public double x() {
+        return getX();
+    }
+
+    public double y() {
+        return getY();
+    }
+
+    public double width() {
+        return getWidth();
+    }
+
+    public double height() {
+        return getHeight();
+    }
 
     /**
      * 窗体拖拽移动
