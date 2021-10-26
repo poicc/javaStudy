@@ -14,4 +14,7 @@ module com.poicc.basic {
 
     exports com.poicc.basic.trayicon;
     opens com.poicc.basic.trayicon to javafx.fxml;
+
+    exports com.poicc.basic.animation;
+    opens com.poicc.basic.animation to javafx.fxml;
 }
