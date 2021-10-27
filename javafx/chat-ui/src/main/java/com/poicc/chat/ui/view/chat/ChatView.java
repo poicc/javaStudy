@@ -2,6 +2,8 @@ package com.poicc.chat.ui.view.chat;
 
 import com.poicc.chat.ui.view.chat.data.RemindCount;
 import com.poicc.chat.ui.view.chat.data.TalkBoxData;
+import com.poicc.chat.ui.view.chat.group_bar_friend.*;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
@@ -18,6 +20,15 @@ public class ChatView {
     public ChatView(ChatInit chatInit, IChatEvent chatEvent) {
         this.chatInit = chatInit;
         this.chatEvent = chatEvent;
+
+        //1. 好友列表添加工具方法‘新的朋友’
+        initAddFriendNew();
+        //2. 好友列表添加‘公众号’
+        addFriendSubscription();
+        //3. 好友群组框体
+        addFriendGroupList();
+        //4. 好友框体
+        addFriendUserList();
     }
 
     public ChatView() {
@@ -125,4 +136,75 @@ public class ChatView {
         }
         isRemind(msgRemindLabel, talkType, isRemind);
     }
+
+    /**
+     * 好友列表添加新朋友
+     */
+    private void initAddFriendNew() {
+        ListView<Pane> friendList = chatInit.$("friendList", ListView.class);
+        ObservableList<Pane> items = friendList.getItems();
+
+        ElementFriendTag elementFriendTag = new ElementFriendTag("新的朋友");
+        items.add(elementFriendTag.pane());
+
+        ElementFriendNew element = new ElementFriendNew();
+        Pane pane = element.pane();
+        items.add(pane);
+
+        // 面板填充和事件
+        pane.setOnMousePressed(event -> {
+            chatInit.clearViewListSelectedAll(chatInit.$("userListView", ListView.class), chatInit.$("groupListView", ListView.class));
+        });
+    }
+
+    /**
+     * 好友列表添加公众号
+     */
+    private void addFriendSubscription() {
+        ListView<Pane> friendList = chatInit.$("friendList", ListView.class);
+        ObservableList<Pane> items = friendList.getItems();
+
+        ElementFriendTag elementFriendTag = new ElementFriendTag("公众号");
+        items.add(elementFriendTag.pane());
+
+        ElementFriendSubscription element = new ElementFriendSubscription();
+        Pane pane = element.pane();
+        items.add(pane);
+
+        pane.setOnMousePressed(event -> {
+            chatInit.clearViewListSelectedAll(chatInit.$("userListView", ListView.class), chatInit.$("groupListView", ListView.class));
+        });
+    }
+
+    /**
+     * 好友群组
+     */
+    private void addFriendGroupList() {
+        ListView<Pane> friendList = chatInit.$("friendList", ListView.class);
+        ObservableList<Pane> items = friendList.getItems();
+
+        ElementFriendTag elementFriendTag = new ElementFriendTag("群聊");
+        items.add(elementFriendTag.pane());
+
+        ElementFriendGroupList element = new ElementFriendGroupList();
+        Pane pane = element.pane();
+        items.add(pane);
+    }
+
+    /**
+     * 好友列表
+     */
+    private void addFriendUserList() {
+        ListView<Pane> friendList = chatInit.$("friendList", ListView.class);
+        ObservableList<Pane> items = friendList.getItems();
+
+        ElementFriendTag elementFriendTag = new ElementFriendTag("好友");
+        items.add(elementFriendTag.pane());
+
+        ElementFriendUserList element = new ElementFriendUserList();
+        Pane pane = element.pane();
+        items.add(pane);
+    }
+
+
 }

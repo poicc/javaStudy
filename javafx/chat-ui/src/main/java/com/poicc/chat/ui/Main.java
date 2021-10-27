@@ -26,34 +26,46 @@ public class Main extends Application {
         chat.addTalkMsgRight("1000002", "干饭吗", new Date(), true, true, false);
         chat.addTalkMsgUserLeft("1000002", "干饭吗", new Date(), true, false, true);
 
-        chat.addTalkBox(-1, 0, "1000003", "猩猩", "http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20200223/e0056209511341bfabad4ea8463b322c.jpeg", "不会还有人在学习吧", new Date(), false);
-        chat.addTalkMsgRight("1000003", "快推文快推文", new Date(), true, false, false);
-        chat.addTalkMsgUserLeft("1000003", "拒绝", new Date(), true, false, true);
-        chat.addTalkMsgUserLeft("1000003", "不给", new Date(), true, true, true);
+        chat.addTalkBox(-1, 0, "1000001", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "宝藏老班", new Date(), true);
+        chat.addTalkMsgUserLeft("1000001", "Hi，我通过你的好友请求了 现在我们可以开始聊天啦", new Date(), true, false, true);
+        chat.addTalkMsgRight("1000001", "我们很需要你鸭", new Date(), true, true, false);
 
-        chat.addTalkBox(-1, 0, "1000004", "赖慧林", "https://i01piccdn.sogoucdn.com/2e471a61f64b4b81", "乌拉", new Date(), false);
-        chat.addTalkMsgRight("1000004", "点名了叫我", new Date(), true, false, false);
-        chat.addTalkMsgUserLeft("1000004", "乌拉", new Date(), true, true, false);
-        chat.addTalkMsgUserLeft("1000004", "乌拉乌拉", new Date(), true, false, true);
+        // 群组
+        chat.addFriendGroup("2000001", "松山院", "https://cdn.jsdelivr.net/gh/poicc/image@main/ssy.6ri61mw42ko0.png");
+        chat.addFriendGroup("2000002", "终身学习者", "https://cdn.jsdelivr.net/gh/poicc/image@main/logo1.u02ftgk681c.png");
+
+        //        chat.addTalkBox(-1, 0, "1000003", "猩猩", "http://5b0988e595225.cdn.sohucs.com/q_70,c_zoom,w_640/images/20200223/e0056209511341bfabad4ea8463b322c.jpeg", "不会还有人在学习吧", new Date(), false);
+//        chat.addTalkMsgRight("1000003", "快推文快推文", new Date(), true, false, false);
+//        chat.addTalkMsgUserLeft("1000003", "拒绝", new Date(), true, false, true);
+//        chat.addTalkMsgUserLeft("1000003", "不给", new Date(), true, true, true);
+//
+//        chat.addTalkBox(-1, 0, "1000004", "赖慧林", "https://i01piccdn.sogoucdn.com/2e471a61f64b4b81", "乌拉", new Date(), false);
+//        chat.addTalkMsgRight("1000004", "点名了叫我", new Date(), true, false, false);
+//        chat.addTalkMsgUserLeft("1000004", "乌拉", new Date(), true, true, false);
+//        chat.addTalkMsgUserLeft("1000004", "乌拉乌拉", new Date(), true, false, true);
 
         // 群组 - 对话框
 
-        chat.addTalkBox(0, 1, "5307398", "筠竹苑联谊群", "https://cdn.jsdelivr.net/gh/poicc/image@main/2.5ycxoeqclio0.jpg", "笑死", new Date(), false);
-        chat.addTalkMsgRight("5307398", "我要看男酮", new Date(), true, true, false);
-        chat.addTalkMsgGroupLeft("5307398", "1000001", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "芜湖", new Date(), true, false, true);
-        chat.addTalkMsgGroupLeft("5307398", "1000006", "杨阳", "https://avatars.githubusercontent.com/u/46114572?v=4", "修电脑，单身狗", new Date(), true, false, true);
-        chat.addTalkMsgGroupLeft("5307398", "1000005", "poi", "https://cdn.jsdelivr.net/gh/poicc/image@main/wl.3vo9zify6440.jpg", "这里没有男酮", new Date(), true, false, true);
+//        chat.addTalkBox(0, 1, "5307398", "筠竹苑联谊群", "https://cdn.jsdelivr.net/gh/poicc/image@main/2.5ycxoeqclio0.jpg", "笑死", new Date(), false);
+//        chat.addTalkMsgRight("5307398", "我要看男酮", new Date(), true, true, false);
+//        chat.addTalkMsgGroupLeft("5307398", "1000001", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "芜湖", new Date(), true, false, true);
+//        chat.addTalkMsgGroupLeft("5307398", "1000006", "杨阳", "https://avatars.githubusercontent.com/u/46114572?v=4", "修电脑，单身狗", new Date(), true, false, true);
+//        chat.addTalkMsgGroupLeft("5307398", "1000005", "poi", "https://cdn.jsdelivr.net/gh/poicc/image@main/wl.3vo9zify6440.jpg", "这里没有男酮", new Date(), true, false, true);
 
 
-        chat.addTalkBox(0, 1, "5307397", "家族群", "http://img.yao51.com/jiankangtuku/oiibbpoojz.jpeg", "早上好", new Date(), false);
+        chat.addTalkBox(0, 1, "5307397", "松山院", "https://cdn.jsdelivr.net/gh/poicc/image@main/2.5ycxoeqclio0.jpg", "", new Date(), false);
         chat.addTalkMsgRight("5307397", "早上好", new Date(), true, true, false);
-        chat.addTalkMsgGroupLeft("5307397", "1000001", "阖家欢乐", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW2ZCfRrJ3kcVYVr6i1_jjCZ7SXzW7Vrygow&usqp=CAU", "早上好", new Date(), true, false, true);
-        chat.addTalkMsgGroupLeft("5307397", "1000006", "挥汗如雨", "http://inews.gtimg.com/newsapp_bt/0/13353726598/1000", "大家早上好", new Date(), true, false, true);
-        chat.addTalkMsgGroupLeft("5307397", "1000005", "幸福人生", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000001", "老班", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW2ZCfRrJ3kcVYVr6i1_jjCZ7SXzW7Vrygow&usqp=CAU", "早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000006", "大哥", "http://inews.gtimg.com/newsapp_bt/0/13353726598/1000", "大家早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000005", "杨洋", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000005", "王林", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
 
-        chat.addTalkBox(-1, 0, "1000001", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "宝藏老班", new Date(), true);
-        chat.addTalkMsgUserLeft("1000001", "Hi，我通过你的好友请求了 现在我们可以开始聊天啦", new Date(), true, false, true);
-        chat.addTalkMsgRight("1000001", "终于加上老班啦", new Date(), true, true, false);
+        // 好友
+        chat.addFriendUser(false, "1000002", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg");
+        chat.addFriendUser(false, "1000003", "尚宇驰", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/syc.jpg");
+        chat.addFriendUser(false, "1000004", "杨阳", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/yy.jpg");
+        chat.addFriendUser(false, "1000005", "王林", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/wl.jpg");
+
 //        ILoginMethod login = new LoginController((userId, userPassword) -> {
 //            if("admin".equals(userId) && "123456".equals(userPassword)) {
 //                Alert alert = new Alert(Alert.AlertType.INFORMATION);
