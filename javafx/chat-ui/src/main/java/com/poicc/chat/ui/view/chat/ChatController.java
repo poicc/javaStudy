@@ -199,21 +199,6 @@ public class ChatController extends ChatInit implements IChatMethod {
         return y() + height() - 180;
     }
 
-    @Override
-    public void addFriendGroup(String groupId, String groupName, String groupHead) {
-        ElementFriendGroup elementFriendGroup = new ElementFriendGroup(groupId, groupName, groupHead);
-        Pane pane = elementFriendGroup.pane();
-        // 添加到群组列表
-        ListView<Pane> groupListView = $("groupListView", ListView.class);
-        ObservableList<Pane> items = groupListView.getItems();
-        items.add(pane);
-        groupListView.setPrefHeight(80 * items.size());
-        $("friendGroupList", Pane.class).setPrefHeight(80 * items.size());
-        // 添加监听事件
-        pane.setOnMousePressed(event -> {
-            clearViewListSelectedAll($("friendList", ListView.class), $("userListView", ListView.class));
-        });
-    }
 
     @Override
     public void addFriendUser(boolean selected, String userFriendId, String userFriendNickName, String userFriendHead) {
@@ -229,9 +214,62 @@ public class ChatController extends ChatInit implements IChatMethod {
         if (selected) {
             userListView.getSelectionModel().select(pane);
         }
+
+        // 好友，内容框[初始化，未装载]，承载好友信息内容，点击按钮时候填充
+        Pane detailContent = new Pane();
+        detailContent.setPrefSize(850, 560);
+        detailContent.getStyleClass().add("friendUserDetailContent");
+        ObservableList<Node> children = detailContent.getChildren();
+
+        Button sendMsgButton = new Button();
+        sendMsgButton.setId(userFriendId);
+        sendMsgButton.getStyleClass().add("friendUserSendMsgButton");
+        sendMsgButton.setPrefSize(176, 50);
+        sendMsgButton.setLayoutX(337);
+        sendMsgButton.setLayoutY(450);
+        sendMsgButton.setText("发送消息");
+        chatEventDefine.doEventOpenFriendUserSendMsg(sendMsgButton, userFriendId, userFriendNickName, userFriendHead);
+        children.add(sendMsgButton);
         // 添加监听事件
         pane.setOnMousePressed(event -> {
             clearViewListSelectedAll($("friendList", ListView.class), $("groupListView", ListView.class));
+            chatView.setContentPaneBox(userFriendId, userFriendNickName, detailContent);
         });
+        chatView.setContentPaneBox(userFriendId, userFriendNickName, detailContent);
+    }
+
+    @Override
+    public void addFriendGroup(String groupId, String groupName, String groupHead) {
+        ElementFriendGroup elementFriendGroup = new ElementFriendGroup(groupId, groupName, groupHead);
+        Pane pane = elementFriendGroup.pane();
+        // 添加到群组列表
+        ListView<Pane> groupListView = $("groupListView", ListView.class);
+        ObservableList<Pane> items = groupListView.getItems();
+        items.add(pane);
+        groupListView.setPrefHeight(80 * items.size());
+        $("friendGroupList", Pane.class).setPrefHeight(80 * items.size());
+
+        // 群组，内容框[初始化，未装载]，承载群组信息内容，点击按钮时候填充
+        Pane detailContent = new Pane();
+        detailContent.setPrefSize(850, 560);
+        detailContent.getStyleClass().add("friendGroupDetailContent");
+        ObservableList<Node> children = detailContent.getChildren();
+
+        Button sendMsgButton = new Button();
+        sendMsgButton.setId(groupId);
+        sendMsgButton.getStyleClass().add("friendGroupSendMsgButton");
+        sendMsgButton.setPrefSize(176, 50);
+        sendMsgButton.setLayoutX(337);
+        sendMsgButton.setLayoutY(450);
+        sendMsgButton.setText("发送消息");
+        chatEventDefine.doEventOpenFriendGroupSendMsg(sendMsgButton, groupId, groupName, groupHead);
+        children.add(sendMsgButton);
+
+        // 添加监听事件
+        pane.setOnMousePressed(event -> {
+            clearViewListSelectedAll($("friendList", ListView.class), $("userListView", ListView.class));
+            chatView.setContentPaneBox(groupId, groupName, detailContent);
+        });
+        chatView.setContentPaneBox(groupId, groupName, detailContent);
     }
 }
