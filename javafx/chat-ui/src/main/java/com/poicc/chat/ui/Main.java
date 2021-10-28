@@ -54,11 +54,11 @@ public class Main extends Application {
 
 
         chat.addTalkBox(0, 1, "5307397", "松山院", "https://cdn.jsdelivr.net/gh/poicc/image@main/2.5ycxoeqclio0.jpg", "", new Date(), false);
-        chat.addTalkMsgRight("5307397", "早上好", new Date(), true, true, false);
-        chat.addTalkMsgGroupLeft("5307397", "1000001", "老班", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW2ZCfRrJ3kcVYVr6i1_jjCZ7SXzW7Vrygow&usqp=CAU", "早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000001", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "早上好", new Date(), true, false, true);
+//        chat.addTalkMsgRight("5307397", "早上好", new Date(), true, true, false);
         chat.addTalkMsgGroupLeft("5307397", "1000006", "大哥", "http://inews.gtimg.com/newsapp_bt/0/13353726598/1000", "大家早上好", new Date(), true, false, true);
         chat.addTalkMsgGroupLeft("5307397", "1000005", "杨洋", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
-        chat.addTalkMsgGroupLeft("5307397", "1000005", "王林", "https://i04piccdn.sogoucdn.com/90fc4ee9cedaf38a", "早上好", new Date(), true, false, true);
+        chat.addTalkMsgGroupLeft("5307397", "1000005", "王林", "https://i01piccdn.sogoucdn.com/2e471a61f64b4b81", "早上好", new Date(), true, false, true);
 
         // 好友
         chat.addFriendUser(false, "1000002", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg");
