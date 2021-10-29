@@ -214,9 +214,9 @@ public class ChatView {
                 // 搜索清空元素
                 element.friendListView().getItems().clear();
                 // 添加朋友
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000006", "薛凯凯", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/phy.jpg", 0).pane());
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000007", "沙垚彬", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/gj.jpg", 1).pane());
-                element.friendListView().getItems().add(new ElementFriendNewUser("1000008", "金晨星", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/wx.jpg", 2).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("1000006", "薛凯凯", "https://cdn.jsdelivr.net/gh/poicc/image@main/lADPDiCpqaNZoInNAhzNAhw_540_540.7i1d7xumfz80.jpg", 0).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("1000007", "沙垚彬", "https://cdn.jsdelivr.net/gh/poicc/image@main/lADPDh0cQ7yRn63NAbDNAbA_432_432.5usxk9c65k80.jpg", 1).pane());
+                element.friendListView().getItems().add(new ElementFriendNewUser("1000008", "金晨星", "https://cdn.jsdelivr.net/gh/poicc/image@main/lADPDgQ9qxFJDJ_NAbDNAbA_432_432.24cu32t99bxc.jpg", 2).pane());
             }
         });
     }

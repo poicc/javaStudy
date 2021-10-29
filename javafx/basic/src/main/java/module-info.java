@@ -4,6 +4,7 @@ module com.poicc.basic {
     requires com.github.oshi;
     requires fastjson;
     requires java.desktop;
+    requires javafx.web;
 
 
     opens com.poicc.basic to javafx.fxml;
@@ -17,4 +18,5 @@ module com.poicc.basic {
 
     exports com.poicc.basic.animation;
     opens com.poicc.basic.animation to javafx.fxml;
+
 }

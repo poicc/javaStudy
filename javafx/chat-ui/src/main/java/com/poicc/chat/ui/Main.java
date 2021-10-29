@@ -20,15 +20,16 @@ public class Main extends Application {
         chat.doShow();
         chat.setUserInfo("1000001", "poicc", "https://cdn.jsdelivr.net/gh/1802343228/image@main/avatar.3sylmzwhoqi0.png");
 
+        chat.addTalkBox(-1, 0, "1000001", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "宝藏老班", new Date(), true);
+        chat.addTalkMsgUserLeft("1000001", "Hi，我通过你的好友请求了 现在我们可以开始聊天啦", new Date(), true, false, true);
+        chat.addTalkMsgRight("1000001", "我只知道记忆与我同在，将美好的往事完美的浓缩起来，如同一笔浓墨重彩", new Date(), true, true, false);
+
 
         // 好友 - 对话框
         chat.addTalkBox(-1, 0, "1000002", "尚宇驰", "https://avatars.githubusercontent.com/u/55419799?v=4", "走", new Date(), false);
         chat.addTalkMsgRight("1000002", "干饭吗", new Date(), true, true, false);
         chat.addTalkMsgUserLeft("1000002", "干饭吗", new Date(), true, false, true);
 
-        chat.addTalkBox(-1, 0, "1000001", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg", "宝藏老班", new Date(), true);
-        chat.addTalkMsgUserLeft("1000001", "Hi，我通过你的好友请求了 现在我们可以开始聊天啦", new Date(), true, false, true);
-        chat.addTalkMsgRight("1000001", "我只知道记忆与我同在，将美好的往事完美的浓缩起来，如同一笔浓墨重彩", new Date(), true, true, false);
 
         // 群组
         chat.addFriendGroup("2000001", "松山院", "https://cdn.jsdelivr.net/gh/poicc/image@main/ssy.6ri61mw42ko0.png");
@@ -62,9 +63,10 @@ public class Main extends Application {
 
         // 好友
         chat.addFriendUser(false, "1000002", "老班", "https://cdn.jsdelivr.net/gh/mqxu/wiki-image@master/avatar/me.5y3oh3q7cy00.jpg");
+        chat.addFriendUser(false, "1000005", "王林", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/wl.jpg");
         chat.addFriendUser(false, "1000003", "尚宇驰", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/syc.jpg");
         chat.addFriendUser(false, "1000004", "杨阳", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/yy.jpg");
-        chat.addFriendUser(false, "1000005", "王林", "https://niit-soft.oss-cn-hangzhou.aliyuncs.com/avatar/wl.jpg");
+
 
 //        ILoginMethod login = new LoginController((userId, userPassword) -> {
 //            if("admin".equals(userId) && "123456".equals(userPassword)) {
