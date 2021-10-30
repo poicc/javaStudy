@@ -34,6 +34,7 @@ public class DogTest {
         Dog dog3 = new Dog();
         dog3.setName("旺财");
 
+        
         System.out.println("请问你要领养什么宠物：1，狗，2，penguin");
         String typeId = scanner.nextLine();
         System.out.println(master.getPet(typeId));
