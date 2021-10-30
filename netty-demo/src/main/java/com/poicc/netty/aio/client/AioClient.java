@@ -15,7 +15,7 @@ public class AioClient {
     public static void main(String[] args)throws Exception {
         AsynchronousSocketChannel socketChannel = AsynchronousSocketChannel.open();
         //改成你的IP地址
-        Future<Void> future = socketChannel.connect(new InetSocketAddress("192.168.31.14", 7397));
+        Future<Void> future = socketChannel.connect(new InetSocketAddress("192.168.137.1", 8081));
         System.out.println("AIO客户端启动成功！");
         future.get();
         socketChannel.read(ByteBuffer.allocate(1024), null, new AioClientHandler(socketChannel, StandardCharsets.UTF_8));

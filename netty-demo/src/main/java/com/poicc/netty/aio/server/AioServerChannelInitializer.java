@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * @author: crq
  * @create: 2021-10-30 23:41
  **/
-public abstract class AioServerChannelInitializer extends ChannelInitializer {
+public class AioServerChannelInitializer extends ChannelInitializer {
 
     @Override
     protected void initChannel(AsynchronousSocketChannel channel) throws Exception {
