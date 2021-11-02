@@ -22,6 +22,10 @@
         <module>netty-demo-09</module>
         <module>netty-demo-10</module>
         <module>netty-demo-11</module>
+        <module>netty-demo-spring-01</module>
+        <module>netty-demo-spring-02</module>
+        <module>netty-demo-spring-03</module>
+        <module>netty-demo-spring-04</module>
     </modules>
 
     <properties>
