@@ -28,6 +28,7 @@
         <module>netty-demo-spring-04</module>
         <module>netty-demo-spring-05</module>
         <module>netty-demo-spring-06</module>
+        <module>netty-demo-websocket</module>
     </modules>
 
     <properties>
