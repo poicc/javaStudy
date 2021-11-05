@@ -60,7 +60,7 @@ public class SocketServerDemo {
                     }
                 });
         System.out.println("服务启动了....");
-        ChannelFuture future = bootstrap.bind(8888).sync();
+        ChannelFuture future = bootstrap.bind(8081).sync();
         future.channel().closeFuture().sync();
     } finally {
         bossGroup.shutdownGracefully();
