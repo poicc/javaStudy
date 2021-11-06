@@ -1,6 +1,7 @@
 package com.soft.study.basic.generics;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @description: 上界通配符
