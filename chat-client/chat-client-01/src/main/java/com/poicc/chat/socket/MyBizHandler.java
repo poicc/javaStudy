@@ -1,15 +1,24 @@
 package com.poicc.chat.socket;
 
+
+import com.poicc.chat.application.UIService;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import lombok.extern.slf4j.Slf4j;
+
 
 /**
- * @description:
- * @author: crq
- * @create: 2021-11-07 00:30
- **/
-public abstract class MyBizHandler<T>  extends SimpleChannelInboundHandler<T> {
+ * @author mqxu
+ */
+@Slf4j
+public abstract class MyBizHandler<T> extends SimpleChannelInboundHandler<T> {
+
+    protected UIService uiService;
+
+    public MyBizHandler(UIService uiService) {
+        this.uiService = uiService;
+    }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, T msg) throws Exception {
@@ -21,11 +30,13 @@ public abstract class MyBizHandler<T>  extends SimpleChannelInboundHandler<T> {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
-        System.out.println("断开连接了");
+        log.info("断开连接了");
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("关闭" + ctx.channel().id());}
+        log.info("关闭${}", ctx.channel().id());
+    }
 
 }
+

@@ -7,5 +7,5 @@ package com.poicc.chat.ui.param;
  */
 public class AppConst {
     public static final int TALK_SKETCH_LENGTH = 30;
-    public static final int FACE_COUNT = 10;
+    public static final int FACE_COUNT = 20;
 }

@@ -17,8 +17,8 @@ module com.poicc.chatui {
     opens com.poicc.chat.ui.view.chat to javafx.fxml;
     exports com.poicc.chat.ui.view.chat;
 
-//    opens com.poicc.chat.ui.view.face to javafx.fxml;
-//    exports com.poicc.chat.ui.view.face;
+    opens com.poicc.chat.ui.view.face to javafx.fxml;
+    exports com.poicc.chat.ui.view.face;
 
     opens com.poicc.chat.ui.view.login to javafx.fxml;
     exports com.poicc.chat.ui.view.login;

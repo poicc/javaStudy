@@ -1,5 +1,7 @@
 package com.poicc.chat.socket;
 
+import com.poicc.chat.application.UIService;
+import com.poicc.chat.infrastructure.util.BeanUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -7,25 +9,29 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Callable;
 
 /**
- * @description: NettyClient
- * @author: crq
- * @create: 2021-11-07 00:28
- **/
+ * NettyClient
+ *
+ * @author mqxu
+ */
+@Slf4j
 public class NettyClient implements Callable<Channel> {
 
-    private Logger logger = LoggerFactory.getLogger(NettyClient.class);
+    private final String serverHost = "127.0.0.1";
+    private final int serverPort = 7397;
 
-    private String inetHost = "127.0.0.1";
-    private int inetPort = 7397;
-
-    private EventLoopGroup workerGroup = new NioEventLoopGroup();
+    private final EventLoopGroup workerGroup = new NioEventLoopGroup();
     private Channel channel;
+
+    private final UIService uiService;
+
+    public NettyClient(UIService uiService) {
+        this.uiService = uiService;
+    }
 
     @Override
     public Channel call() throws Exception {
@@ -35,16 +41,17 @@ public class NettyClient implements Callable<Channel> {
             b.group(workerGroup);
             b.channel(NioSocketChannel.class);
             b.option(ChannelOption.AUTO_READ, true);
-            b.handler(new MyChannelInitializer());
-            channelFuture = b.connect(inetHost, inetPort).syncUninterruptibly();
+            b.handler(new MyChannelInitializer(uiService));
+            channelFuture = b.connect(serverHost, serverPort).syncUninterruptibly();
             this.channel = channelFuture.channel();
+            BeanUtil.addBean("channel", channel);
         } catch (Exception e) {
-            logger.error("socket client start error", e.getMessage());
+            log.error("socket client start error ${}", e.getMessage());
         } finally {
             if (null != channelFuture && channelFuture.isSuccess()) {
-                logger.info("socket client start done.");
+                log.info("socket client start done. ");
             } else {
-                logger.error("socket client start error.");
+                log.error("socket client start error. ");
             }
         }
         return channel;
@@ -58,9 +65,12 @@ public class NettyClient implements Callable<Channel> {
         workerGroup.shutdownGracefully();
     }
 
-    public boolean isActive(){
+    public boolean isActive() {
         return channel.isActive();
     }
 
-    public Channel channel() {return channel;}
+    public Channel channel() {
+        return channel;
+    }
+
 }
