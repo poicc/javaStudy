@@ -8,7 +8,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.poicc.chat.client" level="INFO"/>
+    <logger name="com.poicc.chat" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>

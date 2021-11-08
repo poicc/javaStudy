@@ -18,7 +18,7 @@ import java.util.Objects;
  * @author: crq
  * @create: 2021-10-22 23:28
  **/
-public class LoginInit extends UIObject {
+public abstract class LoginInit extends UIObject {
 
     private static final String RESOURCE_NAME = "view/login/login.fxml";
 
@@ -48,21 +48,10 @@ public class LoginInit extends UIObject {
     }
 
     private void obtain() {
-        loginMin = $("loginMin");
-        loginClose = $("loginClose");
-        loginButton = $("loginButton");
-        userId = $("userId");
-        userPassword = $("userPassword");
-    }
-
-
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public void initEventDefine() {
-
+        loginMin = $("loginMin", Button.class);
+        loginClose = $("loginClose", Button.class);
+        loginButton = $("loginButton", Button.class);
+        userId = $("userId", TextField.class);
+        userPassword = $("userPassword", PasswordField.class);
     }
 }

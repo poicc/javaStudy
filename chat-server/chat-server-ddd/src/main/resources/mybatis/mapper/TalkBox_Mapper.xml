@@ -21,7 +21,7 @@
           and talk_id = #{talkId}
     </delete>
 
-    <select id="queryTalkBox" parameterType="java.lang.String" resultType="top.mqxu.chat.infrastructure.po.TalkBox">
+    <select id="queryTalkBox" parameterType="java.lang.String" resultType="com.poicc.chat.infrastructure.po.TalkBox">
         select id
         from talk_box
         where user_id = #{userId}

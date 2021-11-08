@@ -8,7 +8,7 @@ package com.poicc.chat.ui.view.login;
 public class LoginEventDefine {
     private final LoginInit loginInit;
     private final ILoginEvent loginEvent;
-    private final ILoginMethod loginMethod;
+    private ILoginMethod loginMethod;
 
     public LoginEventDefine(LoginInit loginInit, ILoginEvent loginEvent, ILoginMethod loginMethod) {
         this.loginInit = loginInit;
@@ -16,34 +16,33 @@ public class LoginEventDefine {
         this.loginMethod = loginMethod;
 
         loginInit.move();
-        this.min();
-        this.quit();
-        this.doEventLogin();
+        min();
+        quit();
+        doEventLogin();
     }
 
     /**
-     * 最小化事件
+     * 最小化
      */
     private void min() {
         loginInit.loginMin.setOnAction(event -> {
-            System.out.println("最小化");
             loginInit.setIconified(true);
         });
     }
 
+
     /**
-     * 退出事件
+     * 退出
      */
     private void quit() {
         loginInit.loginClose.setOnAction(event -> {
-            System.out.println("退出");
             loginInit.close();
             System.exit(0);
         });
     }
 
     /**
-     * 登录事件
+     * 登录
      */
     private void doEventLogin() {
         loginInit.loginButton.setOnAction(event -> {
