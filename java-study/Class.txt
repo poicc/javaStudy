@@ -1,2 +1,2 @@
-className=com.soft.study.basic.reflection.Person
+className=com.soft.Person
 methodName=getPerson

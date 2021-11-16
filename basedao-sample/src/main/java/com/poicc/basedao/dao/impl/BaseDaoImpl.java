@@ -48,7 +48,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
             //设置属性为可访问
             classField.setAccessible(true);
             for (T t : list) {
-                //    遍历list,获取到对应的属性的值
+                //遍历list,获取到对应的属性的值
                 Object o = classField.get(t);
                 if (value.equals(o) || value.toString().equals(o.toString())) {
                     //和预期相等，加入到返回值中
