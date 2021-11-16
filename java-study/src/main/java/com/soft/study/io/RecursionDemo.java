@@ -1,11 +1,11 @@
 package com.soft.study.io;
 
 /**
- * @description: 递归求和
+ * @description: 递归练习
  * @author: crq
- * @create: 2021-11-16 13:53
+ * @create: 2021-11-16 16:47
  **/
-public class RecursionSum {
+public class RecursionDemo {
     public static void main(String[] args) {
         //计算1~num的和，使⽤递归完成
         int num = 5;
@@ -13,7 +13,12 @@ public class RecursionSum {
         int sum = getSum(num);
         // 输出结果
         System.out.println(sum);
+
+        //递归求阶乘
+        int res = getFactorial(5);
+        System.out.println(res);
     }
+
     /**
      * 递归算法实现
      *
@@ -29,4 +34,17 @@ public class RecursionSum {
         return num + getSum(num - 1);
     }
 
+    /**
+     * 递归求阶乘
+     * @param num num
+     * @return int
+     */
+    public static int getFactorial(int num) {
+        //1的阶乘为1
+        if (num == 1) {
+            return 1;
+        }
+        //n不为1时,⽅法返回 n! = n*(n-1)! 递归调⽤getValue⽅法
+        return num * getFactorial(num - 1);
+    }
 }

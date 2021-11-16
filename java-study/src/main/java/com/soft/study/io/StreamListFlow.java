@@ -3,11 +3,11 @@ package com.soft.study.io;
 import java.io.*;
 
 /**
- * @description: 缓冲流
+ * @description: 缓冲流加数组
  * @author: crq
- * @create: 2021-11-16 15:15
+ * @create: 2021-11-16 15:19
  **/
-public class StreamFlow {
+public class StreamListFlow {
     public static void main(String[] args) throws IOException {
         // 记录开始时间
         long start = System.currentTimeMillis();
@@ -17,13 +17,13 @@ public class StreamFlow {
                 FileInputStream("src.zip"));
         BufferedOutputStream bos = new BufferedOutputStream(new
                 FileOutputStream("copy.zip"));
+
         // 读写数据
         int len = 0;
         byte[] bytes = new byte[8*1024];
         while ((len = bis.read(bytes)) != -1) {
             bos.write(bytes, 0 , len);
         }
-
         // 记录结束时间
         long end = System.currentTimeMillis();
         System.out.println("缓冲流使⽤数组复制时间:"+(end - start)+" 毫秒");

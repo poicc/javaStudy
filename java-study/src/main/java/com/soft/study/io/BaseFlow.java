@@ -15,8 +15,8 @@ public class BaseFlow {
         long start = System.currentTimeMillis();
 
         // 创建流对象
-        FileInputStream fis = new FileInputStream("jdk8.exe");
-        FileOutputStream fos = new FileOutputStream("copy.exe");
+        FileInputStream fis = new FileInputStream("src.zip");
+        FileOutputStream fos = new FileOutputStream("copy.zip");
 
         // 读写数据
         int b = 0;
