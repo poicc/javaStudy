@@ -8,8 +8,8 @@ package com.soft.study.basic.concurrent;
 public class SellTickTest3 {
     public static void main(String[] args) {
         TicketWindow3 tw = new TicketWindow3();
-        for(int i =1;i<=3;i++){
-            Thread thread = new Thread(tw,"窗口"+i);
+        for (int i = 1; i <= 3; i++) {
+            Thread thread = new Thread(tw, "窗口" + i);
             thread.start();
         }
     }
