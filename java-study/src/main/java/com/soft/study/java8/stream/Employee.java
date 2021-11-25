@@ -21,12 +21,9 @@ public class Employee {
     private String name;
     private Integer age;
     private Integer salary;
+    private String gender;
+    private String address;
 
     static List<Employee> employeeList = new ArrayList<>();
-    private static void initData() {
-        employeeList.add(new Employee("张三", 48, 3000));
-        employeeList.add(new Employee("李四", 18, 5000));
-        employeeList.add(new Employee("王五", 28, 7000));
-        employeeList.add(new Employee("赵六", 38, 9000));
-    }
+
 }

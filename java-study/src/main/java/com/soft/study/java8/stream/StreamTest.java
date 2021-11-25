@@ -1,14 +1,20 @@
 package com.soft.study.java8.stream;
 
 
-
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @description:
  * @author: crq
  * @create: 2021-11-25 00:47
+ *
  **/
 public class StreamTest {
     static List<Employee> employeeList = new ArrayList<>();
@@ -19,13 +25,24 @@ public class StreamTest {
 //        customFilter();
 //        getMaxLengthItem();
 //        getMaxInteger();
+
 //        getMaxAge();
 //        getGreaterThan();
 //        toUpperCase();
 //        integerItemPlus();
 //        addSalary();
 //        mergeStrArr();
-        mergeNewArr();
+//        mergeNewArr();
+//        reduceOperator();
+//        salaryOperator();
+//        list2Map();
+//        collectorsTest();
+//        partitionGroupTest();
+//        joiningTest();
+//        sortedTest();
+//        otherOperator();
+//        readFile();
+        reduceListTest();
     }
 
     /**
@@ -49,10 +66,12 @@ public class StreamTest {
      * 初始化数据
      */
     private static void initData() {
-        employeeList.add(new Employee("张三", 48, 3000));
-        employeeList.add(new Employee("李四", 18, 5000));
-        employeeList.add(new Employee("王五", 28, 7000));
-        employeeList.add(new Employee("赵六", 38, 9000));
+        employeeList.add(new Employee("ZhangSan", 25, 3000, "male", "nanjing"));
+        employeeList.add(new Employee("LiSi", 27, 8500, "male", "wuxi"));
+        employeeList.add(new Employee("WangWu", 29, 7000, "female", "nanjing"));
+        employeeList.add(new Employee("ZhaoLiu", 26, 3000, "female", "wuxi"));
+        employeeList.add(new Employee("YangQi", 27, 5000, "male", "wuxi"));
+        employeeList.add(new Employee("XuBa", 21, 7000, "female", "nanjing"));
     }
     /**
      * 筛选员工中未满18周岁的人，并形成新的集合
@@ -204,4 +223,152 @@ public class StreamTest {
         }).collect(Collectors.toList());
         System.out.println(collect);
     }
+    /**
+     * reduce 求Integer集合的元素之和、乘积和最大值
+     */
+    private static void reduceOperator() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4);
+        //求和
+        Optional<Integer> reduce = list.stream().reduce(Integer::sum);
+        System.out.println("求和:" + reduce);
+        //求积
+        Optional<Integer> reduce2 = list.stream().reduce((x, y) -> x * y);
+        System.out.println("求积:" + reduce2);
+        //求最大值
+        Optional<Integer> reduce3 = list.stream().reduce((x, y) -> x > y ? x : y);
+        System.out.println("求最大值:" + reduce3);
+    }
+    /**
+     * 求所有员工的工资之和和最高工资
+     */
+    private static void salaryOperator() {
+        initData();
+        Optional<Integer> reduce = employeeList.stream().map(Employee::getSalary).reduce(Integer::sum);
+        Optional<Integer> reduce2 = employeeList.stream().map(Employee::getSalary).reduce(Integer::max);
+        System.out.println("工资之和:" + reduce);
+        System.out.println("最高工资:" + reduce2);
+    }
+    /**
+     * 取出大于18岁的员工转为map
+     */
+    private static void list2Map() {
+        initData();
+        Map<String, Employee> collect = employeeList.stream().filter(x -> x.getAge() > 18).collect(Collectors.toMap(Employee::getName, y -> y));
+        System.out.println(collect);
+    }
+    /**
+     * 统计员工人数、平均工资、工资总额、最高工资
+     */
+    private static void collectorsTest() {
+        //统计员工人数
+        long count = employeeList.stream().collect(Collectors.counting());
+        //求平均工资
+        double average = employeeList.stream().collect(Collectors.averagingDouble(Employee::getSalary));
+        //求最高工资
+        Optional<Integer> max = employeeList.stream().map(Employee::getSalary).collect(Collectors.maxBy(Integer::compare));
+        //求工资之和
+        int sum = employeeList.stream().collect(Collectors.summingInt(Employee::getSalary));
+        //一次性统计所有信息
+        DoubleSummaryStatistics collect = employeeList.stream().collect(Collectors.summarizingDouble(Employee::getSalary));
+        System.out.println("统计员工人数:" + count);
+        System.out.println("求平均工资:" + average);
+        System.out.println("求最高工资:" + max);
+        System.out.println("求工资之和:" + sum);
+        System.out.println("一次性统计所有信息:" + collect);
+    }
+
+    /**
+     * 将员工按性别和地区分组
+     */
+    private static void partitionGroupTest() {
+        initData();
+        // 将员工按薪资是否高于6000分组
+        Map<Boolean, List<Employee>> part = employeeList.stream().collect(Collectors.partitioningBy(x -> x.getSalary() > 6000));
+        // 将员工按性别分组
+        Map<String, List<Employee>> group = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender));
+        // 将员工先按性别分组，再按地区分组
+        Map<String, Map<String, List<Employee>>> group2 = employeeList.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.groupingBy(Employee::getAddress)));
+        System.out.println("员工按薪资是否大于6000分组情况：" + part);
+        System.out.println("员工按性别分组情况：" + group);
+        System.out.println("员工按性别、地区：" + group2);
+    }
+    /**
+     * joining结合测试
+     */
+    private static void joiningTest() {
+        initData();
+        String names = employeeList.stream().map(Employee::getName).collect(Collectors.joining(","));
+        System.out.println(names);
+    }
+    /**
+     * sorted排序测试
+     */
+    private static void sortedTest() {
+        initData();
+        // 按工资升序排序（自然排序）
+        List<String> newList = employeeList.stream().sorted(Comparator.comparing(Employee::getSalary)).map(Employee::getName)
+                .collect(Collectors.toList());
+        // 按工资倒序排序
+        List<String> newList2 = employeeList.stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .map(Employee::getName).collect(Collectors.toList());
+        // 先按工资再按年龄升序排序
+        List<String> newList3 = employeeList.stream()
+                .sorted(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getAge)).map(Employee::getName)
+                .collect(Collectors.toList());
+        // 先按工资再按年龄自定义排序（降序）
+        List<String> newList4 = employeeList.stream().sorted((p1, p2) -> {
+            if (Objects.equals(p1.getSalary(), p2.getSalary())) {
+                return p2.getAge() - p1.getAge();
+            } else {
+                return p2.getSalary() - p1.getSalary();
+            }
+        }).map(Employee::getName).collect(Collectors.toList());
+        System.out.println("按工资升序排序：" + newList);
+        System.out.println("按工资降序排序：" + newList2);
+        System.out.println("先按工资再按年龄升序排序：" + newList3);
+        System.out.println("先按工资再按年龄自定义降序排序：" + newList4);
+    }
+    /**
+     * 流的合并、去重、限制、跳过等操作
+     */
+    private static void otherOperator() {
+        String[] arr1 = {"a", "b", "c", "d"};
+        String[] arr2 = {"d", "e", "f", "g"};
+        Stream<String> stream1 = Stream.of(arr1);
+        Stream<String> stream2 = Stream.of(arr2);
+        // concat:合并两个流 distinct：去重
+        List<String> newList = Stream.concat(stream1, stream2).distinct().collect(Collectors.toList());
+        // limit：限制从流中获得前n个数据
+        List<Integer> collect = Stream.iterate(1, x -> x + 2).limit(10).collect(Collectors.toList());
+        // skip：跳过前n个数据
+        List<Integer> collect2 = Stream.iterate(1, x -> x + 2).skip(1).limit(5).collect(Collectors.toList());
+
+        System.out.println("流合并：" + newList);
+        System.out.println("limit：" + collect);
+        System.out.println("skip：" + collect2);
+    }
+    /**
+     * 读取文件的流操作
+     */
+    private static void readFile() {
+        String fileName = "test.txt";
+        Path path = new File(fileName).toPath();
+        try {
+            Stream<String> lines = Files.lines(path, StandardCharsets.UTF_8);
+            lines.onClose(() -> System.out.println("Done!")).forEach(System.out::println);
+        } catch (IOException e) {
+            System.err.println("readFile error," + e.getMessage());
+        }
+    }
+    /**
+     * 计算两个list中的差集
+     */
+    private static void reduceListTest() {
+        List<String> list1 = new ArrayList<>(Arrays.asList("aaa", "bba", "ccc"));
+        List<String> list2 = new ArrayList<>(Arrays.asList("aaa", "bbb", "ccc"));
+        List<String> reduceList = list1.stream().filter(item -> !list2.contains(item)).collect(Collectors.toList());
+        System.out.println(reduceList);
+    }
+
+
 }
