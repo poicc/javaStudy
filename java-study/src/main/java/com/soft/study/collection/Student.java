@@ -1,5 +1,7 @@
 package com.soft.study.collection;
 
+import java.util.Objects;
+
 /**
  * @description:
  * @author: crq
@@ -14,6 +16,19 @@ public class Student {
         this.age = age;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Student student = (Student) o;
+        return age == student.age && Objects.equals(name, student.name);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
     @Override
     public String toString() {
         return "Student{" +
